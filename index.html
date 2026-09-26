@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning & Quiz Portal</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f8fafc; margin: 0; padding: 2rem 1rem; color: #1e293b; }
+    .card { max-width: 680px; margin: 0 auto; background: #ffffff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
+    h1 { font-size: 1.6rem; margin-top: 0; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.75rem; }
+    .study-material { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; }
+    .study-material h2 { font-size: 1.1rem; margin-top: 0; }
+    .question { margin-bottom: 1.5rem; }
+    .question p { font-weight: 600; margin-bottom: 0.5rem; }
+    label { display: block; padding: 0.5rem 0.75rem; margin-bottom: 0.4rem; background: #f1f5f9; border-radius: 6px; cursor: pointer; }
+    label:hover { background: #e2e8f0; }
+    input[type="radio"] { margin-right: 0.5rem; }
+    button { background: #2563eb; color: #ffffff; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; }
+    button:hover { background: #1d4ed8; }
+    #score-output { margin-top: 1.5rem; font-size: 1.15rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Self-Study Assessment</h1>
+    
+    <div class="study-material">
+      <h2>Module 1 Notes</h2>
+      <p>Welcome to the study module. Review the material and answer the practice questions below.</p>
+    </div>
+
+    <div class="quiz-section">
+      <div class="question" id="q1">
+        <p>1. Which file is served as the main home page by default?</p>
+        <label><input type="radio" name="q1" value="a"> home.txt</label>
+        <label><input type="radio" name="q1" value="b"> index.html</label>
+        <label><input type="radio" name="q1" value="c"> script.css</label>
+      </div>
+
+      <div class="question" id="q2">
+        <p>2. Where are GitHub Pages sites hosted?</p>
+        <label><input type="radio" name="q2" value="a"> Directly from your GitHub repository</label>
+        <label><input type="radio" name="q2" value="b"> Only from a local computer</label>
+        <label><input type="radio" name="q2" value="c"> On a physical USB drive</label>
+      </div>
+
+      <button onclick="checkAnswers()">Submit Quiz</button>
+      <div id="score-output"></div>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswers() {
+      const answers = { q1: 'b', q2: 'a' };
+      let score = 0;
+      let count = 0;
+
+      for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        if (selected) {
+          count++;
+          if (selected.value === answers[q]) score++;
+        }
+      }
+
+      const out = document.getElementById('score-output');
+      if (count < 2) {
+        out.style.color = '#d97706';
+        out.innerText = 'Please answer all questions before submitting.';
+        return;
+      }
+
+      out.innerText = `Final Score: ${score} / 2`;
+      out.style.color = score === 2 ? '#16a34a' : '#ea580c';
+    }
+  </script>
+</body>
+</html>
