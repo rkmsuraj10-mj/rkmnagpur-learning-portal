@@ -1,171 +1,341 @@
-<p>
-  <a href="index.html" style="color: #2563eb; font-weight: bold; text-decoration: none;">
-    ← Back to Home Page
-  </a>
-</p>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Study Module & Self-Assessment</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>स्वामी विवेकानन्द स्वाध्याय एवं परीक्षा | विवेकानंद विद्यापीठ</title>
   <style>
-    * { box-sizing: border-box; }
+    :root {
+      --primary: #c95d1b; /* भगवा / ओकर थीम */
+      --primary-light: #fff8f2;
+      --card-border: #f3c78e;
+      --text-dark: #333;
+    }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f9fb;
+      color: var(--text-dark);
       margin: 0;
-      padding: 2rem 1rem;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
     }
     .container {
-      max-width: 720px;
-      margin: 0 auto;
+      max-width: 750px;
+      width: 100%;
       background: #ffffff;
-      padding: 2.5rem;
+      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
     }
-    h1 { margin-top: 0; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.75rem; }
-    h2 { color: #1e40af; margin-top: 1.5rem; font-size: 1.25rem; }
-    .study-text {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2rem;
+    .header {
+      text-align: center;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
     }
-    .question-block {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
+    .header h1 {
+      color: var(--primary);
+      margin: 0 0 5px 0;
     }
-    .question-title { font-weight: 600; margin-bottom: 0.75rem; }
-    label {
-      display: block;
-      padding: 0.6rem 0.8rem;
-      margin-bottom: 0.4rem;
-      border-radius: 6px;
-      background: #f1f5f9;
-      cursor: pointer;
-      transition: background 0.15s;
+    .header p {
+      color: #666;
+      margin: 0;
     }
-    label:hover { background: #e2e8f0; }
-    input[type="radio"] { margin-right: 0.5rem; }
-    .btn-submit {
-      background: #2563eb;
-      color: #fff;
-      border: none;
-      padding: 0.8rem 1.75rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .btn-submit:hover { background: #1d4ed8; }
-    .feedback {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: none;
-    }
-    .score-banner {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 8px;
-      font-size: 1.15rem;
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      color: var(--primary);
+      text-decoration: none;
       font-weight: bold;
+    }
+    .quiz-box {
+      margin-top: 15px;
+    }
+    .progress-bar {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+    .question-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .options-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 25px 0;
+    }
+    .option-item {
+      padding: 12px 18px;
+      background: var(--primary-light);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+    .option-item:hover {
+      background: #fae4cb;
+    }
+    .option-item input {
+      margin-right: 12px;
+      accent-color: var(--primary);
+      transform: scale(1.2);
+    }
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: inline-block;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background-color: #a84b12;
+    }
+    .result-box {
+      text-align: center;
+      padding: 30px;
       display: none;
+    }
+    .score {
+      font-size: 2.2rem;
+      color: var(--primary);
+      font-weight: bold;
+      margin: 15px 0;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Module 1: Study & Practice</h1>
 
-    <!-- 1. Text Study Material -->
-    <div class="study-text">
-      <h2>Key Concepts & Overview</h2>
-      <p>
-        Insert your main study text, principles, rules, historical summaries, or grammar guidelines here. 
-        You can write as many paragraphs as needed.
-      </p>
-      <p>
-        <strong>Core Principle:</strong> Emphasize foundational takeaways here so the student can review them before attempting the assessment.
-      </p>
-    </div>
+<div class="container">
+  <a href="index.html" class="back-btn">&larr; मुख्य पृष्ठ पर वापस जाएँ</a>
 
-    <!-- 2. Practice Quiz -->
-    <h2>Self-Assessment Quiz</h2>
-    
-    <div class="question-block" id="block-q1">
-      <div class="question-title">1. Write your question here:</div>
-      <label><input type="radio" name="q1" value="a"> Option A text</label>
-      <label><input type="radio" name="q1" value="b"> Option B text (Correct)</label>
-      <label><input type="radio" name="q1" value="c"> Option C text</label>
-      <div class="feedback" id="feedback-q1"></div>
-    </div>
-
-    <div class="question-block" id="block-q2">
-      <div class="question-title">2. Write another question here:</div>
-      <label><input type="radio" name="q2" value="a"> Option A text (Correct)</label>
-      <label><input type="radio" name="q2" value="b"> Option B text</label>
-      <label><input type="radio" name="q2" value="c"> Option C text</label>
-      <div class="feedback" id="feedback-q2"></div>
-    </div>
-
-    <button class="btn-submit" onclick="submitAssessment()">Submit Assessment</button>
-    <div class="score-banner" id="score-banner"></div>
+  <div class="header">
+    <h1>विवेकानंद विद्यापीठ</h1>
+    <p>विषय: स्वामी विवेकानन्द (20 प्रश्न)</p>
   </div>
 
-  <script>
-    const answerKey = {
-      q1: { correct: 'b', explanation: 'Option B is correct because of rule X.' },
-      q2: { correct: 'a', explanation: 'Option A is the correct answer according to the study text.' }
-    };
+  <!-- प्रश्नोत्तरी बॉक्स -->
+  <div id="quiz-container" class="quiz-box">
+    <div class="progress-bar" id="progress">प्रश्न 1 / 20</div>
+    <div class="question-title" id="question-text">प्रश्न यहाँ आएगा...</div>
+    
+    <ul class="options-list" id="options-container">
+      <!-- विकल्प जावास्क्रिप्ट से जुड़ेंगे -->
+    </ul>
 
-    function submitAssessment() {
-      let score = 0;
-      let total = Object.keys(answerKey).length;
-      let unanswered = 0;
+    <button id="next-btn" class="btn" onclick="nextQuestion()">अगला प्रश्न &rarr;</button>
+  </div>
 
-      for (let q in answerKey) {
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        const feedback = document.getElementById(`feedback-${q}`);
-        feedback.style.display = 'block';
+  <!-- परिणाम बॉक्स (स्कोर) -->
+  <div id="result-container" class="result-box">
+    <h2>परीक्षा पूर्ण हुई!</h2>
+    <p>आपका कुल प्राप्तांक:</p>
+    <div class="score" id="final-score">0 / 20</div>
+    <p id="feedback-msg"></p>
+    <br>
+    <button class="btn" onclick="restartQuiz()">पुनः परीक्षा दें</button>
+  </div>
+</div>
 
-        if (!selected) {
-          unanswered++;
-          feedback.style.color = '#d97706';
-          feedback.innerText = '⚠️ Please select an answer.';
-          continue;
-        }
-
-        if (selected.value === answerKey[q].correct) {
-          score++;
-          feedback.style.color = '#16a34a';
-          feedback.innerText = '✓ Correct! ' + answerKey[q].explanation;
-        } else {
-          feedback.style.color = '#dc2626';
-          feedback.innerText = '✗ Incorrect. ' + answerKey[q].explanation;
-        }
-      }
-
-      const banner = document.getElementById('score-banner');
-      banner.style.display = 'block';
-      if (unanswered > 0) {
-        banner.style.background = '#fef3c7';
-        banner.style.color = '#92400e';
-        banner.innerText = `Please answer all questions. (${unanswered} remaining)`;
-      } else {
-        banner.style.background = score === total ? '#dcfce7' : '#fee2e2';
-        banner.style.color = score === total ? '#15803d' : '#b91c1c';
-        banner.innerText = `Your Score: ${score} / ${total} (${Math.round((score/total)*100)}%)`;
-      }
+<script>
+  // स्वामी विवेकानन्द जी पर 20 प्रश्न
+  const questions = [
+    {
+      q: "1. स्वामी विवेकानन्द जी के बचपन का नाम क्या था?",
+      options: ["नरेंद्रनाथ दत्त", "सुरेंद्रनाथ", "गदाधर चट्टोपाध्याय", "विश्वनाथ"],
+      correct: 0
+    },
+    {
+      q: "2. स्वामी विवेकानन्द का जन्म कब हुआ था?",
+      options: ["12 जनवरी 1863", "14 अप्रैल 1865", "2 अक्टूबर 1869", "23 जनवरी 1897"],
+      correct: 0
+    },
+    {
+      q: "3. स्वामी विवेकानन्द जी के गुरु कौन थे?",
+      options: ["स्वामी दयानन्द सरस्वती", "श्री रामकृष्ण परमहंस", "आदि शंकराचार्य", "ईश्वरचंद्र विद्यासागर"],
+      correct: 1
+    },
+    {
+      q: "4. शिकागो में आयोजित 'विश्व धर्म संसद' में स्वामीजी ने किस वर्ष ऐतिहासिक भाषण दिया था?",
+      options: ["1890", "1893", "1897", "1902"],
+      correct: 1
+    },
+    {
+      q: "5. स्वामी विवेकानन्द ने रामकृष्ण मिशन की स्थापना किस वर्ष की थी?",
+      options: ["1 मई 1897", "12 जनवरी 1893", "4 जुलाई 1902", "15 अगस्त 1900"],
+      correct: 0
+    },
+    {
+      q: "6. भारत में स्वामी विवेकानन्द के जन्मदिवस को किस रूप में मनाया जाता है?",
+      options: ["शिक्षक दिवस", "बाल दिवस", "राष्ट्रीय युवा दिवस", "एकता दिवस"],
+      correct: 2
+    },
+    {
+      q: "7. स्वामीजी के पिता का क्या नाम था?",
+      options: ["विश्वनाथ दत्त", "नरेंद्र दत्त", "रास बिहारी दत्त", "देवेंद्रनाथ"],
+      correct: 0
+    },
+    {
+      q: "8. स्वामी विवेकानन्द की माता का क्या नाम था?",
+      options: ["सारदा देवी", "भुवनेश्वरी देवी", "यशोदा देवी", "कादंबिनी देवी"],
+      correct: 1
+    },
+    {
+      q: "9. रामकृष्ण मठ और मिशन का मुख्यालय कहाँ स्थित है?",
+      options: ["कन्याकुमारी", "बेलूड़ मठ (हावड़ा)", "वाराणसी", "मायावती अल्मोड़ा"],
+      correct: 1
+    },
+    {
+      q: "10. 'उठो, जागो और तब तक मत रुको जब तक लक्ष्य प्राप्त न हो जाए' यह उपदेश किस उपनिषद से प्रेरित है?",
+      options: ["ईशावास्योपनिषद्", "कठोपनिषद्", "मुण्डकोपनिषद्", "माण्डूक्योपनिषद्"],
+      correct: 1
+    },
+    {
+      q: "11. 'कर्मयोग', 'भक्तियोग', 'राजयोग' और 'ज्ञानयोग' पुस्तकें किसने लिखी हैं?",
+      options: ["स्वामी विवेकानन्द", "महात्मा गांधी", "रवींद्रनाथ ठाकुर", "श्री अरविन्द"],
+      correct: 0
+    },
+    {
+      q: "12. स्वामीजी की प्रमुख विदेशी शिष्या 'सिस्टर निवेदिता' का मूल नाम क्या था?",
+      options: ["मार्गरेट एलिजाबेथ नोबल", "मैरी लुईस", "हेलेना ब्लैवत्स्की", "एनी बेसेंट"],
+      correct: 0
+    },
+    {
+      q: "13. भारत के किस दक्षिणी छोर पर 'विवेकानन्द रॉक मेमोरियल' स्थित है?",
+      options: ["रामेश्वरम", "कन्याकुमारी", "कोच्चि", "पुदुचेरी"],
+      correct: 1
+    },
+    {
+      q: "14. स्वामी विवेकानन्द को 'विवेकानन्द' नाम किसने सुझाया था?",
+      options: ["खेतड़ी के राजा अजीत सिंह", "श्री रामकृष्ण", "शारदा माँ", "शिकागो समिति"],
+      correct: 0
+    },
+    {
+      q: "15. स्वामी विवेकानन्द जी ने किस पत्रिका की शुरुआत की थी?",
+      options: ["प्रबुद्ध भारत", "हरिजन", "केसरी", "युगांतर"],
+      correct: 0
+    },
+    {
+      q: "16. स्वामी विवेकानन्द जी का महासमाधि दिवस कब है?",
+      options: ["4 जुलाई 1902", "12 जनवरी 1905", "15 अगस्त 1902", "2 अक्टूबर 1900"],
+      correct: 0
+    },
+    {
+      q: "17. स्वामीजी ने किस आयु में महासमाधि ली?",
+      options: ["39 वर्ष", "45 वर्ष", "50 वर्ष", "32 वर्ष"],
+      correct: 0
+    },
+    {
+      q: "18. स्वामीजी के अनुसार सच्चा धर्म क्या है?",
+      options: ["केवल पूजा-पाठ", "मानव सेवा ही ईश्वर सेवा (जीव शिव है)", "केवल उपवास", "सिद्धांतों पर वाद-विवाद"],
+      correct: 1
+    },
+    {
+      q: "19. स्वामी विवेकानन्द ने पश्चिम में वेदांत दर्शन के प्रचार हेतु किस संस्था की स्थापना की?",
+      options: ["वेदांत सोसाइटी", "थियोसोफिकल सोसाइटी", "ब्रह्म समाज", "प्रार्थना समाज"],
+      correct: 0
+    },
+    {
+      q: "20. स्वामीजी युवाओं को मुख्य रूप से किस गुण को अपनाने के लिए प्रेरित करते थे?",
+      options: ["आलस्य", "आत्मविश्वास और निर्भीकता", "अंधविश्वास", "पलायनवाद"],
+      correct: 1
     }
-  </script>
+  ];
+
+  let currentQuestionIndex = 0;
+  let score = 0;
+  let selectedOption = null;
+
+  function loadQuestion() {
+    selectedOption = null;
+    const qData = questions[currentQuestionIndex];
+    document.getElementById("progress").innerText = `प्रश्न ${currentQuestionIndex + 1} / ${questions.length}`;
+    document.getElementById("question-text").innerText = qData.q;
+    
+    const optionsContainer = document.getElementById("options-container");
+    optionsContainer.innerHTML = "";
+
+    qData.options.forEach((opt, index) => {
+      const li = document.createElement("li");
+      li.className = "option-item";
+      li.innerHTML = `
+        <label style="cursor: pointer; width: 100%; display: flex; align-items: center;">
+          <input type="radio" name="quiz_opt" value="${index}" onchange="selectOpt(${index})">
+          ${opt}
+        </label>
+      `;
+      optionsContainer.appendChild(li);
+    });
+
+    if (currentQuestionIndex === questions.length - 1) {
+      document.getElementById("next-btn").innerText = "परीक्षा समाप्त करें";
+    } else {
+      document.getElementById("next-btn").innerText = "अगला प्रश्न →";
+    }
+  }
+
+  function selectOpt(index) {
+    selectedOption = index;
+  }
+
+  function nextQuestion() {
+    if (selectedOption === null) {
+      alert("कृपया आगे बढ़ने से पहले किसी एक विकल्प को चुनें।");
+      return;
+    }
+
+    if (selectedOption === questions[currentQuestionIndex].correct) {
+      score++;
+    }
+
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    document.getElementById("quiz-container").style.display = "none";
+    const resultBox = document.getElementById("result-container");
+    resultBox.style.display = "block";
+
+    document.getElementById("final-score").innerText = `${score} / ${questions.length}`;
+
+    let msg = "";
+    if (score >= 18) {
+      msg = "उत्कृष्ट! स्वामी विवेकानन्द के विचारों पर आपकी पकड़ बहुत मजबूत है।";
+    } else if (score >= 12) {
+      msg = "बहुत अच्छा प्रयास! स्वाध्याय को और गहरा करें।";
+    } else {
+      msg = "आपको और अधिक स्वाध्याय की आवश्यकता है। पुनः प्रयास करें!";
+    }
+    document.getElementById("feedback-msg").innerText = msg;
+  }
+
+  function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    document.getElementById("result-container").style.display = "none";
+    document.getElementById("quiz-container").style.display = "block";
+    loadQuestion();
+  }
+
+  // पहली बार लोड करने के लिए
+  loadQuestion();
+</script>
+
 </body>
 </html>
