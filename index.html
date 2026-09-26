@@ -6,51 +6,198 @@
   <title>Learning & Quiz Portal</title>
   <style>
     * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, sans-serif; background: #f8fafc; margin: 0; padding: 2rem 1rem; color: #1e293b; }
-    .card { max-width: 680px; margin: 0 auto; background: #ffffff; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.06); }
-    h1 { font-size: 1.6rem; margin-top: 0; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.75rem; }
-    .study-material { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 2rem 1rem;
+      color: #1e293b;
+    }
+    .card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-top: 0;
+      color: #0f172a;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.75rem;
+    }
+    .login-section {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+    .login-section label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .login-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .login-row input {
+      flex: 1;
+      padding: 0.65rem 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+    }
+    .login-row button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.65rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .login-row button:hover { background: #1d4ed8; }
+    .welcome-header {
+      background: #ecfdf5;
+      border-left: 4px solid #10b981;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: #065f46;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .change-name-btn {
+      font-size: 0.85rem;
+      background: transparent;
+      border: 1px solid #10b981;
+      color: #065f46;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .study-material {
+      background: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 1rem;
+      border-radius: 4px;
+      margin-bottom: 2rem;
+    }
     .study-material h2 { font-size: 1.1rem; margin-top: 0; }
     .question { margin-bottom: 1.5rem; }
     .question p { font-weight: 600; margin-bottom: 0.5rem; }
-    label { display: block; padding: 0.5rem 0.75rem; margin-bottom: 0.4rem; background: #f1f5f9; border-radius: 6px; cursor: pointer; }
-    label:hover { background: #e2e8f0; }
+    .option-label {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      margin-bottom: 0.4rem;
+      background: #f1f5f9;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .option-label:hover { background: #e2e8f0; }
     input[type="radio"] { margin-right: 0.5rem; }
-    button { background: #2563eb; color: #ffffff; border: none; padding: 0.75rem 1.5rem; font-size: 1rem; font-weight: 600; border-radius: 8px; cursor: pointer; }
-    button:hover { background: #1d4ed8; }
-    #score-output { margin-top: 1.5rem; font-size: 1.15rem; font-weight: bold; }
+    .submit-btn {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .submit-btn:hover { background: #1d4ed8; }
+    #score-output {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.15rem;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Self-Study Assessment</h1>
-    
-    <div class="study-material">
-      <h2>Module 1 Notes</h2>
-      <p>Welcome to the study module. Review the material and answer the practice questions below.</p>
+    <h1>Self-Study Assessment Portal</h1>
+
+    <!-- 1. Student Name Entry Box -->
+    <div id="login-box" class="login-section">
+      <label for="studentNameInput">Enter your Full Name to begin:</label>
+      <div class="login-row">
+        <input type="text" id="studentNameInput" placeholder="e.g. Anand Sharma" />
+        <button onclick="startPortal()">Start</button>
+      </div>
     </div>
 
-    <div class="quiz-section">
-      <div class="question" id="q1">
-        <p>1. Which file is served as the main home page by default?</p>
-        <label><input type="radio" name="q1" value="a"> home.txt</label>
-        <label><input type="radio" name="q1" value="b"> index.html</label>
-        <label><input type="radio" name="q1" value="c"> script.css</label>
+    <!-- 2. Personalized Banner (Shows after name entry) -->
+    <div id="welcome-banner" class="welcome-header" style="display: none;">
+      <span id="welcome-text"></span>
+      <button class="change-name-btn" onclick="resetStudent()">Change Name</button>
+    </div>
+
+    <!-- 3. Study Notes & Quiz Content (Locked until name is entered) -->
+    <div id="portal-content" style="display: none;">
+      <div class="study-material">
+        <h2>Module 1 Notes</h2>
+        <p>Welcome to the study module. Review the concepts carefully before answering the practice questions below.</p>
       </div>
 
-      <div class="question" id="q2">
-        <p>2. Where are GitHub Pages sites hosted?</p>
-        <label><input type="radio" name="q2" value="a"> Directly from your GitHub repository</label>
-        <label><input type="radio" name="q2" value="b"> Only from a local computer</label>
-        <label><input type="radio" name="q2" value="c"> On a physical USB drive</label>
-      </div>
+      <div class="quiz-section">
+        <div class="question" id="q1">
+          <p>1. Which file is served as the main home page by default?</p>
+          <label class="option-label"><input type="radio" name="q1" value="a"> home.txt</label>
+          <label class="option-label"><input type="radio" name="q1" value="b"> index.html</label>
+          <label class="option-label"><input type="radio" name="q1" value="c"> script.css</label>
+        </div>
 
-      <button onclick="checkAnswers()">Submit Quiz</button>
-      <div id="score-output"></div>
+        <div class="question" id="q2">
+          <p>2. Where are GitHub Pages sites hosted?</p>
+          <label class="option-label"><input type="radio" name="q1" value="a" style="display:none;"></label>
+          <label class="option-label"><input type="radio" name="q2" value="a"> Directly from your GitHub repository</label>
+          <label class="option-label"><input type="radio" name="q2" value="b"> Only from a local computer</label>
+          <label class="option-label"><input type="radio" name="q2" value="c"> On a physical USB drive</label>
+        </div>
+
+        <button class="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+        <div id="score-output" style="display: none;"></div>
+      </div>
     </div>
   </div>
 
   <script>
+    let currentStudent = "";
+
+    function startPortal() {
+      const nameInput = document.getElementById('studentNameInput').value.trim();
+      if (!nameInput) {
+        alert("Please enter your name to continue.");
+        return;
+      }
+      currentStudent = nameInput;
+
+      // Update UI
+      document.getElementById('login-box').style.display = 'none';
+      document.getElementById('welcome-text').innerText = "Student: " + currentStudent;
+      document.getElementById('welcome-banner').style.display = 'flex';
+      document.getElementById('portal-content').style.display = 'block';
+    }
+
+    function resetStudent() {
+      currentStudent = "";
+      document.getElementById('studentNameInput').value = "";
+      document.getElementById('login-box').style.display = 'block';
+      document.getElementById('welcome-banner').style.display = 'none';
+      document.getElementById('portal-content').style.display = 'none';
+      document.getElementById('score-output').style.display = 'none';
+    }
+
     function checkAnswers() {
       const answers = { q1: 'b', q2: 'a' };
       let score = 0;
@@ -65,20 +212,25 @@
       }
 
       const out = document.getElementById('score-output');
+      out.style.display = 'block';
+
       if (count < 2) {
-        out.style.color = '#d97706';
-        out.innerText = 'Please answer all questions before submitting.';
+        out.style.background = '#fef3c7';
+        out.style.color = '#92400e';
+        out.innerText = `Please answer all questions before submitting, ${currentStudent}.`;
         return;
       }
 
-      out.innerText = `Final Score: ${score} / 2`;
-      out.style.color = score === 2 ? '#16a34a' : '#ea580c';
+      if (score === 2) {
+        out.style.background = '#dcfce7';
+        out.style.color = '#15803d';
+        out.innerText = `Well done, ${currentStudent}! Final Score: ${score} / 2 (100%)`;
+      } else {
+        out.style.background = '#fee2e2';
+        out.style.color = '#b91c1c';
+        out.innerText = `Keep practicing, ${currentStudent}! Final Score: ${score} / 2`;
+      }
     }
   </script>
 </body>
 </html>
-<p>
-  <a href="rough1.html" style="color: #2563eb; font-weight: bold; text-decoration: none;">
-    👉 Go to Rough 1 Page
-  </a>
-</p>
