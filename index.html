@@ -1,236 +1,510 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Learning & Quiz Portal</title>
+  <title>श्रीरामकृष्ण देव प्रश्नोत्तरी परीक्षा</title>
   <style>
     * { box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f8fafc;
-      margin: 0;
-      padding: 2rem 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+      background-color: #f1f5f9;
       color: #1e293b;
+      line-height: 1.6;
+      margin: 0;
+      padding: 1.5rem 1rem;
     }
-    .card {
-      max-width: 680px;
+    .wrapper {
+      max-width: 820px;
       margin: 0 auto;
       background: #ffffff;
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
     }
-    h1 {
-      font-size: 1.6rem;
-      margin-top: 0;
-      color: #0f172a;
+    .header {
+      text-align: center;
       border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 0.75rem;
-    }
-    .login-section {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      padding: 1.5rem;
-      border-radius: 8px;
+      padding-bottom: 1rem;
       margin-bottom: 1.5rem;
     }
-    .login-section label {
-      font-weight: 600;
+    .header h1 {
+      font-size: 1.6rem;
+      color: #b45309;
+      margin: 0 0 0.4rem 0;
+    }
+    .header p {
+      margin: 0;
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    /* Registration Form */
+    .reg-card {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
       display: block;
-      margin-bottom: 0.5rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: #78350f;
     }
-    .login-row {
-      display: flex;
-      gap: 0.5rem;
-    }
-    .login-row input {
-      flex: 1;
-      padding: 0.65rem 0.8rem;
-      font-size: 1rem;
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.7rem;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
-    }
-    .login-row button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 0.65rem 1.25rem;
       font-size: 1rem;
+      background: #fff;
+    }
+    .btn-primary {
+      background: #b45309;
+      color: #ffffff;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1.05rem;
       font-weight: 600;
       border-radius: 6px;
       cursor: pointer;
+      display: inline-block;
+      transition: background 0.2s;
     }
-    .login-row button:hover { background: #1d4ed8; }
-    .welcome-header {
-      background: #ecfdf5;
-      border-left: 4px solid #10b981;
-      padding: 0.75rem 1rem;
-      border-radius: 4px;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: #065f46;
+    .btn-primary:hover { background: #92400e; }
+
+    /* Student Info Bar */
+    .student-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    .change-name-btn {
-      font-size: 0.85rem;
-      background: transparent;
-      border: 1px solid #10b981;
-      color: #065f46;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .study-material {
       background: #f8fafc;
-      border-left: 4px solid #3b82f6;
-      padding: 1rem;
-      border-radius: 4px;
-      margin-bottom: 2rem;
+      border: 1px solid #e2e8f0;
+      border-left: 4px solid #b45309;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
     }
-    .study-material h2 { font-size: 1.1rem; margin-top: 0; }
-    .question { margin-bottom: 1.5rem; }
-    .question p { font-weight: 600; margin-bottom: 0.5rem; }
-    .option-label {
+
+    /* Question Cards */
+    .q-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .q-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #0f172a;
+    }
+    .opt-label {
       display: block;
-      padding: 0.5rem 0.75rem;
-      margin-bottom: 0.4rem;
-      background: #f1f5f9;
+      background: #f8fafc;
+      padding: 0.65rem 0.85rem;
+      margin-bottom: 0.45rem;
       border-radius: 6px;
       cursor: pointer;
+      border: 1px solid #e2e8f0;
+      transition: background 0.15s;
     }
-    .option-label:hover { background: #e2e8f0; }
-    input[type="radio"] { margin-right: 0.5rem; }
-    .submit-btn {
-      background: #2563eb;
-      color: #ffffff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
+    .opt-label:hover { background: #e2e8f0; }
+    .opt-label input { margin-right: 0.6rem; }
+
+    /* Analysis Dashboard */
+    .analysis-container { display: none; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
     }
-    .submit-btn:hover { background: #1d4ed8; }
-    #score-output {
-      margin-top: 1.5rem;
+    .stat-card {
       padding: 1rem;
       border-radius: 8px;
-      font-size: 1.15rem;
+      text-align: center;
+    }
+    .stat-card.total { background: #e0f2fe; color: #0369a1; }
+    .stat-card.correct { background: #dcfce7; color: #15803d; }
+    .stat-card.incorrect { background: #fee2e2; color: #b91c1c; }
+    .stat-card.percent { background: #fef3c7; color: #b45309; }
+    .stat-num { font-size: 1.6rem; font-weight: bold; margin-bottom: 0.2rem; }
+
+    /* Review Items */
+    .review-item {
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      border: 1px solid #e2e8f0;
+    }
+    .review-item.pass { border-left: 5px solid #16a34a; background: #f0fdf4; }
+    .review-item.fail { border-left: 5px solid #dc2626; background: #fef2f2; }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
       font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .badge-pass { background: #16a34a; color: #fff; }
+    .badge-fail { background: #dc2626; color: #fff; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .wrapper { box-shadow: none; padding: 0; }
+      .no-print { display: none !important; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Self-Study Assessment Portal</h1>
 
-    <!-- 1. Student Name Entry Box -->
-    <div id="login-box" class="login-section">
-      <label for="studentNameInput">Enter your Full Name to begin:</label>
-      <div class="login-row">
-        <input type="text" id="studentNameInput" placeholder="e.g. Anand Sharma" />
-        <button onclick="startPortal()">Start</button>
-      </div>
-    </div>
-
-    <!-- 2. Personalized Banner (Shows after name entry) -->
-    <div id="welcome-banner" class="welcome-header" style="display: none;">
-      <span id="welcome-text"></span>
-      <button class="change-name-btn" onclick="resetStudent()">Change Name</button>
-    </div>
-
-    <!-- 3. Study Notes & Quiz Content (Locked until name is entered) -->
-    <div id="portal-content" style="display: none;">
-      <div class="study-material">
-        <h2>Module 1 Notes</h2>
-        <p>Welcome to the study module. Review the concepts carefully before answering the practice questions below.</p>
-      </div>
-
-      <div class="quiz-section">
-        <div class="question" id="q1">
-          <p>1. Which file is served as the main home page by default?</p>
-          <label class="option-label"><input type="radio" name="q1" value="a"> home.txt</label>
-          <label class="option-label"><input type="radio" name="q1" value="b"> index.html</label>
-          <label class="option-label"><input type="radio" name="q1" value="c"> script.css</label>
-        </div>
-
-        <div class="question" id="q2">
-          <p>2. Where are GitHub Pages sites hosted?</p>
-          <label class="option-label"><input type="radio" name="q1" value="a" style="display:none;"></label>
-          <label class="option-label"><input type="radio" name="q2" value="a"> Directly from your GitHub repository</label>
-          <label class="option-label"><input type="radio" name="q2" value="b"> Only from a local computer</label>
-          <label class="option-label"><input type="radio" name="q2" value="c"> On a physical USB drive</label>
-        </div>
-
-        <button class="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
-        <div id="score-output" style="display: none;"></div>
-      </div>
-    </div>
+<div class="wrapper">
+  <div class="header">
+    <h1>श्रीरामकृष्ण देव — परीक्षा एवं मूल्यांकन</h1>
+    <p>विवेकानंद विद्यापीठ (VVB) | कुल प्रश्न: 20 | पूर्णांक: 20</p>
   </div>
 
-  <script>
-    let currentStudent = "";
+  <!-- 1. Registration Screen -->
+  <div id="screen-reg" class="reg-card">
+    <h2 style="margin-top:0; font-size:1.2rem; color:#78350f;">विद्यार्थी विवरण दर्ज करें</h2>
+    <div class="form-group">
+      <label for="stdName">विद्यार्थी का पूरा नाम (Full Name) *</label>
+      <input type="text" id="stdName" placeholder="उदा. राहुल शर्मा" required />
+    </div>
+    <div class="form-group">
+      <label for="stdRoll">अनुक्रमांक / रोल नंबर (Roll No. / ID)</label>
+      <input type="text" id="stdRoll" placeholder="उदा. VVB-2026-01" />
+    </div>
+    <div class="form-group">
+      <label for="stdYear">VVB Year (सत्र / वर्ष) *</label>
+      <select id="stdYear">
+        <option value="">-- वर्ष चुनें --</option>
+        <option value="VVB 1st Year">VVB 1st Year (प्रथम वर्ष)</option>
+        <option value="VVB 2nd Year">VVB 2nd Year (द्वितीय वर्ष)</option>
+        <option value="VVB 3rd Year">VVB 3rd Year (तृतीय वर्ष)</option>
+        <option value="VVB 4th Year">VVB 4th Year (चतुर्थ वर्ष)</option>
+        <option value="VVB Alumnus / Other">अन्य / भूतपूर्व</option>
+      </select>
+    </div>
+    <button class="btn-primary" onclick="startExam()">परीक्षा प्रारंभ करें</button>
+  </div>
 
-    function startPortal() {
-      const nameInput = document.getElementById('studentNameInput').value.trim();
-      if (!nameInput) {
-        alert("Please enter your name to continue.");
-        return;
-      }
-      currentStudent = nameInput;
+  <!-- 2. Exam Screen -->
+  <div id="screen-exam" style="display:none;">
+    <div class="student-bar">
+      <div>
+        <span id="bar-name"></span> | <span id="bar-year" style="color:#b45309;"></span>
+      </div>
+      <div id="bar-roll" style="font-size: 0.9rem; color:#64748b;"></div>
+    </div>
 
-      // Update UI
-      document.getElementById('login-box').style.display = 'none';
-      document.getElementById('welcome-text').innerText = "Student: " + currentStudent;
-      document.getElementById('welcome-banner').style.display = 'flex';
-      document.getElementById('portal-content').style.display = 'block';
+    <form id="quizForm">
+      <div id="questions-container"></div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <button type="button" class="btn-primary" onclick="evaluateExam()">परीक्षा जमा करें (Submit Exam)</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- 3. Result Analysis Screen -->
+  <div id="screen-result" class="analysis-container">
+    <div class="student-bar">
+      <div>
+        <strong>परीक्षार्थी:</strong> <span id="res-name"></span> (<span id="res-year"></span>)
+      </div>
+      <div><strong>अनुक्रमांक:</strong> <span id="res-roll"></span></div>
+    </div>
+
+    <h2 style="font-size:1.3rem; margin-top:1rem; text-align:center;">परीक्षा परिणाम विश्लेषण (Result Analysis)</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card total">
+        <div class="stat-num" id="stat-total">20</div>
+        <div>कुल प्रश्न</div>
+      </div>
+      <div class="stat-card correct">
+        <div class="stat-num" id="stat-correct">0</div>
+        <div>सही उत्तर</div>
+      </div>
+      <div class="stat-card incorrect">
+        <div class="stat-num" id="stat-wrong">0</div>
+        <div>गलत उत्तर</div>
+      </div>
+      <div class="stat-card percent">
+        <div class="stat-num" id="stat-pct">0%</div>
+        <div>प्राप्तांक प्रतिशत</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-bottom: 2rem;" class="no-print">
+      <button class="btn-primary" onclick="window.print()">परिणाम प्रिंट / PDF सेव करें</button>
+      <button class="btn-primary" style="background:#475569; margin-left: 0.5rem;" onclick="location.reload()">नया विद्यार्थी लॉगिन</button>
+    </div>
+
+    <h3 style="border-bottom: 1px solid #cbd5e1; padding-bottom: 0.5rem;">विस्तृत प्रश्नवार विश्लेषण (Detailed Review):</h3>
+    <div id="review-container"></div>
+  </div>
+</div>
+
+<script>
+  const questionBank = [
+    {
+      id: 1,
+      q: "श्रीरामकृष्णदेव के जन्म से पहले उनके पिता तीर्थयात्रा के लिए किस स्थान पर गए थे?",
+      options: { A: "अयोध्या", B: "गया", C: "वृन्दावन", D: "इनमें से कोई नहीं" },
+      ans: "B"
+    },
+    {
+      id: 2,
+      q: "श्रीरामकृष्णदेव का बचपन का नाम क्या था?",
+      options: { A: "दामोदर", B: "लीलाधर", C: "गदाधर", D: "इनमें से कोई नहीं" },
+      ans: "C"
+    },
+    {
+      id: 3,
+      q: "श्रीरामकृष्णदेव के सबसे बड़े भाई का नाम क्या था?",
+      options: { A: "रामकुमार", B: "रामनाथ", C: "रामेन्द्र", D: "इनमें से कोई नहीं" },
+      ans: "A"
+    },
+    {
+      id: 4,
+      q: "श्रीरामकृष्णदेव का जन्मस्थान कौन-सा है?",
+      options: { A: "डेरे", B: "कामारपुकुर", C: "मुकुन्दपुर", D: "इनमें से कोई नहीं" },
+      ans: "B"
+    },
+    {
+      id: 5,
+      q: "श्रीरामकृष्णदेव की माता का नाम क्या था?",
+      options: { A: "प्रसन्नमयी देवी", B: "चन्द्रमणि देवी", C: "प्रभामणि देवी", D: "इनमें से कोई नहीं" },
+      ans: "B"
+    },
+    {
+      id: 6,
+      q: "श्रीरामकृष्णदेव को संन्यास देने वाले गुरु का नाम क्या था?",
+      options: { A: "चमेली पुरी", B: "भास्वरानन्द पुरी", C: "तोतापुरी", D: "इनमें से कोई नहीं" },
+      ans: "C"
+    },
+    {
+      id: 7,
+      q: "श्रीरामकृष्णदेव के कुलदेवता का नाम क्या था?",
+      options: { A: "रघुवीर", B: "गणेश", C: "श्रीकृष्ण", D: "इनमें से कोई नहीं" },
+      ans: "A"
+    },
+    {
+      id: 8,
+      q: "श्रीरामकृष्णदेव किस स्थान पर कल्पतरु बने थे?",
+      options: { A: "दक्षिणेश्वर", B: "काशीपुर", C: "श्यामपुकुर", D: "इनमें से कोई नहीं" },
+      ans: "B"
+    },
+    {
+      id: 9,
+      q: "श्रीरामकृष्णदेव के पिता का नाम क्या था?",
+      options: { A: "खुदीराम", B: "रामकुमार", C: "माणिकराम", D: "इनमें से कोई नहीं" },
+      ans: "A"
+    },
+    {
+      id: 10,
+      q: "श्रीरामकृष्णदेव ने किस स्थान पर महासमाधि प्राप्त की?",
+      options: { A: "दक्षिणेश्वर", B: "काशीपुर", C: "श्यामपुकुर", D: "इनमें से कोई नहीं" },
+      ans: "B"
+    },
+    {
+      id: 11,
+      q: "श्रीरामकृष्णदेव ने अपने उपनयन संस्कार के समय प्रथम भिक्षा किससे ग्रहण की थी?",
+      options: { A: "प्रसन्नमयी देवी", B: "चन्द्रमणि देवी", C: "धनी, लोहारिन", D: "इनमें से कोई नहीं" },
+      ans: "C"
+    },
+    {
+      id: 12,
+      q: "श्रीरामकृष्णदेव को तंत्र साधना की दीक्षा किसने दी थी?",
+      options: { A: "रानी रासमणि", B: "भैरवी ब्राह्मणी", C: "रानी भवानी", D: "इनमें से कोई नहीं" },
+      ans: "B"
+    },
+    {
+      id: 13,
+      q: "श्री रामकृष्ण परमहंसदेव का जन्म कब हुआ था?",
+      options: { A: "18 फरवरी 1836", B: "12 जनवरी 1863", C: "16 अगस्त 1886", D: "5 सितंबर 1836" },
+      ans: "A"
+    },
+    {
+      id: 14,
+      q: "श्रीरामकृष्णदेव को ‘रामलला’ किसने प्रदान किए थे?",
+      options: { A: "रानी रासमणि", B: "भैरवी ब्राह्मणी", C: "जटाधारी", D: "इनमें से कोई नहीं" },
+      ans: "C"
+    },
+    {
+      id: 15,
+      q: "श्रीरामकृष्णदेव किसे अपना ‘आध्यात्मिक पुत्र’ मानते थे?",
+      options: { A: "राखाल", B: "नरेन", C: "बाबूराम", D: "इनमें से कोई नहीं" },
+      ans: "A"
+    },
+    {
+      id: 16,
+      q: "दक्षिणेश्वर काली मंदिर में पुजारी के रूप में कार्य करने वाले श्रीरामकृष्णदेव के चचेरे भाई का नाम क्या था?",
+      options: { A: "हृदय", B: "हलधारी", C: "रामेश्वर", D: "इनमें से कोई नहीं" },
+      ans: "A"
+    },
+    {
+      id: 17,
+      q: "‘श्रीश्रीरामकृष्ण-लीलाप्रसंग’ पुस्तक किसने लिखी थी?",
+      options: { A: "ब्रह्मानन्द", B: "विवेकानन्द", C: "सारदानन्द", D: "इनमें से कोई नहीं" },
+      ans: "C"
+    },
+    {
+      id: 18,
+      q: "श्रीरामकृष्णदेव की आध्यात्मिक साधना का प्रमुख केन्द्र कौन-सा स्थान था?",
+      options: { A: "काशी", B: "दक्षिणेश्वर", C: "वृन्दावन", D: "पुरी" },
+      ans: "B"
+    },
+    {
+      id: 19,
+      q: "‘जितने मत, उतने पथ’ का मुख्य भाव क्या है?",
+      options: {
+        A: "सभी धर्मों के बीच संघर्ष होना चाहिए",
+        B: "केवल एक धर्म का पालन करना चाहिए",
+        C: "विभिन्न धर्म ईश्वर तक पहुँचने के अलग-अलग मार्ग हो सकते हैं",
+        D: "धर्म का कोई महत्व नहीं है"
+      },
+      ans: "C"
+    },
+    {
+      id: 20,
+      q: "श्री रामकृष्ण परमहंसदेव ने महासमाधि कब ली?",
+      options: { A: "15 अगस्त 1886", B: "16 अगस्त 1886", C: "1 जनवरी 1886", D: "5 जुलाई 1886" },
+      ans: "B"
+    }
+  ];
+
+  let studentProfile = {};
+
+  function startExam() {
+    const name = document.getElementById('stdName').value.trim();
+    const year = document.getElementById('stdYear').value;
+    const roll = document.getElementById('stdRoll').value.trim() || 'N/A';
+
+    if (!name) {
+      alert("कृपया विद्यार्थी का नाम दर्ज करें।");
+      return;
+    }
+    if (!year) {
+      alert("कृपया VVB Year का चयन करें।");
+      return;
     }
 
-    function resetStudent() {
-      currentStudent = "";
-      document.getElementById('studentNameInput').value = "";
-      document.getElementById('login-box').style.display = 'block';
-      document.getElementById('welcome-banner').style.display = 'none';
-      document.getElementById('portal-content').style.display = 'none';
-      document.getElementById('score-output').style.display = 'none';
+    studentProfile = { name, year, roll };
+
+    // Update Bar
+    document.getElementById('bar-name').innerText = "परीक्षार्थी: " + name;
+    document.getElementById('bar-year').innerText = year;
+    document.getElementById('bar-roll').innerText = "अनुक्रमांक: " + roll;
+
+    // Render questions
+    renderQuestions();
+
+    document.getElementById('screen-reg').style.display = 'none';
+    document.getElementById('screen-exam').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  function renderQuestions() {
+    const container = document.getElementById('questions-container');
+    container.innerHTML = "";
+
+    questionBank.forEach((item, index) => {
+      const qDiv = document.createElement('div');
+      qDiv.className = 'q-card';
+      
+      let optionsHtml = '';
+      for (const [key, value] of Object.entries(item.options)) {
+        optionsHtml += `
+          <label class="opt-label">
+            <input type="radio" name="q_${item.id}" value="${key}">
+            <strong>${key}.</strong> ${value}
+          </label>
+        `;
+      }
+
+      qDiv.innerHTML = `
+        <div class="q-text">${index + 1}. ${item.q}</div>
+        ${optionsHtml}
+      `;
+      container.appendChild(qDiv);
+    });
+  }
+
+  function evaluateExam() {
+    let answered = 0;
+    questionBank.forEach(item => {
+      if (document.querySelector(`input[name="q_${item.id}"]:checked`)) {
+        answered++;
+      }
+    });
+
+    if (answered < questionBank.length) {
+      const confirmSubmit = confirm(`आपने केवल ${answered} / ${questionBank.length} प्रश्नों के उत्तर दिए हैं। क्या आप फिर भी परीक्षा जमा करना चाहते हैं?`);
+      if (!confirmSubmit) return;
     }
 
-    function checkAnswers() {
-      const answers = { q1: 'b', q2: 'a' };
-      let score = 0;
-      let count = 0;
+    let score = 0;
+    let wrong = 0;
+    const reviewBox = document.getElementById('review-container');
+    reviewBox.innerHTML = "";
 
-      for (let q in answers) {
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        if (selected) {
-          count++;
-          if (selected.value === answers[q]) score++;
-        }
-      }
+    questionBank.forEach((item, idx) => {
+      const selected = document.querySelector(`input[name="q_${item.id}"]:checked`);
+      const userChoice = selected ? selected.value : null;
+      const isCorrect = userChoice === item.ans;
 
-      const out = document.getElementById('score-output');
-      out.style.display = 'block';
-
-      if (count < 2) {
-        out.style.background = '#fef3c7';
-        out.style.color = '#92400e';
-        out.innerText = `Please answer all questions before submitting, ${currentStudent}.`;
-        return;
-      }
-
-      if (score === 2) {
-        out.style.background = '#dcfce7';
-        out.style.color = '#15803d';
-        out.innerText = `Well done, ${currentStudent}! Final Score: ${score} / 2 (100%)`;
+      if (isCorrect) {
+        score++;
       } else {
-        out.style.background = '#fee2e2';
-        out.style.color = '#b91c1c';
-        out.innerText = `Keep practicing, ${currentStudent}! Final Score: ${score} / 2`;
+        wrong++;
       }
-    }
-  </script>
+
+      const revItem = document.createElement('div');
+      revItem.className = `review-item ${isCorrect ? 'pass' : 'fail'}`;
+
+      const userText = userChoice ? `${userChoice}. ${item.options[userChoice]}` : '<span style="color:#d97706;">(अनुत्तरित / Not Attempted)</span>';
+      const correctText = `${item.ans}. ${item.options[item.ans]}`;
+
+      revItem.innerHTML = `
+        <div>
+          <span class="badge ${isCorrect ? 'badge-pass' : 'badge-fail'}">
+            ${isCorrect ? '✓ सही उत्तर' : '✗ गलत उत्तर'}
+          </span>
+        </div>
+        <div style="font-weight:600; margin-bottom: 0.5rem;">${idx + 1}. ${item.q}</div>
+        <div style="font-size:0.95rem; margin-bottom: 0.25rem;">
+          <strong>आपका चयन:</strong> ${userText}
+        </div>
+        ${!isCorrect ? `<div style="font-size:0.95rem; color:#15803d; font-weight:600;"><strong>सही उत्तर:</strong> ${correctText}</div>` : ''}
+      `;
+      reviewBox.appendChild(revItem);
+    });
+
+    // Populate Results
+    document.getElementById('res-name').innerText = studentProfile.name;
+    document.getElementById('res-year').innerText = studentProfile.year;
+    document.getElementById('res-roll').innerText = studentProfile.roll;
+
+    document.getElementById('stat-total').innerText = questionBank.length;
+    document.getElementById('stat-correct').innerText = score;
+    document.getElementById('stat-wrong').innerText = wrong;
+    document.getElementById('stat-pct').innerText = `${Math.round((score / questionBank.length) * 100)}%`;
+
+    document.getElementById('screen-exam').style.display = 'none';
+    document.getElementById('screen-result').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+</script>
+
 </body>
 </html>
