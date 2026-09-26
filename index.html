@@ -3,52 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>श्रीरामकृष्ण देव प्रश्नोत्तरी परीक्षा</title>
+  <title>विवेकानंद विद्यापीठ — स्वाध्याय एवं प्रश्नोत्तरी पोर्टल</title>
   <style>
     * { box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
-      background-color: #f1f5f9;
+      background-color: #f8fafc;
       color: #1e293b;
       line-height: 1.6;
       margin: 0;
       padding: 1.5rem 1rem;
     }
     .wrapper {
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 auto;
       background: #ffffff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      padding: 2.2rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
-    .header {
+
+    /* Common Header */
+    .portal-header {
       text-align: center;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.8rem;
     }
-    .header h1 {
-      font-size: 1.6rem;
+    .portal-header h1 {
+      font-size: 1.7rem;
       color: #b45309;
-      margin: 0 0 0.4rem 0;
+      margin: 0 0 0.3rem 0;
     }
-    .header p {
+    .portal-header p {
       margin: 0;
       color: #64748b;
       font-size: 0.95rem;
     }
 
-    /* Registration Form */
-    .reg-card {
+    /* Step 1: Home Page */
+    .hero-section {
+      text-align: center;
+      padding: 1rem 0 2rem 0;
+    }
+    .swami-photo {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 50%;
+      border: 4px solid #fef3c7;
+      box-shadow: 0 4px 14px rgba(180, 83, 9, 0.2);
+      margin-bottom: 1rem;
+    }
+    .hero-quote {
+      font-size: 1.1rem;
+      color: #92400e;
+      font-weight: 600;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+    }
+    .menu-card {
+      background: #fffbeb;
+      border: 2px solid #fde68a;
+      border-radius: 12px;
+      padding: 1.75rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(180, 83, 9, 0.15);
+      border-color: #b45309;
+      background: #fef3c7;
+    }
+    .menu-card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #78350f;
+    }
+    .menu-card span {
+      font-size: 0.85rem;
+      color: #b45309;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+
+    /* Step 2: Registration */
+    .reg-box {
       background: #fffbeb;
       border: 1px solid #fef3c7;
-      padding: 1.5rem;
-      border-radius: 8px;
+      padding: 1.8rem;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 0 auto;
     }
-    .form-group {
-      margin-bottom: 1.2rem;
+    .category-badge {
+      display: inline-block;
+      background: #b45309;
+      color: #fff;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
     }
+    .form-group { margin-bottom: 1.2rem; }
     .form-group label {
       display: block;
       font-weight: 600;
@@ -57,13 +126,15 @@
     }
     .form-group input, .form-group select {
       width: 100%;
-      padding: 0.7rem;
+      padding: 0.75rem;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
       font-size: 1rem;
       background: #fff;
     }
-    .btn-primary {
+
+    /* Buttons */
+    .btn {
       background: #b45309;
       color: #ffffff;
       border: none;
@@ -75,10 +146,15 @@
       display: inline-block;
       transition: background 0.2s;
     }
-    .btn-primary:hover { background: #92400e; }
+    .btn:hover { background: #92400e; }
+    .btn-secondary {
+      background: #64748b;
+      margin-right: 0.5rem;
+    }
+    .btn-secondary:hover { background: #475569; }
 
     /* Student Info Bar */
-    .student-bar {
+    .info-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -88,6 +164,7 @@
       padding: 0.75rem 1rem;
       border-radius: 6px;
       margin-bottom: 1.5rem;
+      font-size: 0.95rem;
       font-weight: 600;
     }
 
@@ -118,11 +195,10 @@
     .opt-label:hover { background: #e2e8f0; }
     .opt-label input { margin-right: 0.6rem; }
 
-    /* Analysis Dashboard */
-    .analysis-container { display: none; }
+    /* Result Analysis */
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 1rem;
       margin: 1.5rem 0;
     }
@@ -137,7 +213,6 @@
     .stat-card.percent { background: #fef3c7; color: #b45309; }
     .stat-num { font-size: 1.6rem; font-weight: bold; margin-bottom: 0.2rem; }
 
-    /* Review Items */
     .review-item {
       padding: 1rem;
       border-radius: 6px;
@@ -159,7 +234,7 @@
 
     @media print {
       body { background: #fff; padding: 0; }
-      .wrapper { box-shadow: none; padding: 0; }
+      .wrapper { box-shadow: none; padding: 0; max-width: 100%; }
       .no-print { display: none !important; }
     }
   </style>
@@ -167,67 +242,107 @@
 <body>
 
 <div class="wrapper">
-  <div class="header">
-    <h1>श्रीरामकृष्ण देव — परीक्षा एवं मूल्यांकन</h1>
-    <p>रामकृष्ण मठ नागपुर | कुल प्रश्न: 20 | पूर्णांक: 20</p>
+  <!-- Portal Header -->
+  <div class="portal-header">
+    <h1>विवेकानंद विद्यापीठ</h1>
+    <p>स्वाध्याय, साधना एवं मूल्य संवर्धन परीक्षा पोर्टल</p>
   </div>
 
-  <!-- 1. Registration Screen -->
-  <div id="screen-reg" class="reg-card">
-    <h2 style="margin-top:0; font-size:1.2rem; color:#78350f;">विद्यार्थी विवरण दर्ज करें</h2>
-    <div class="form-group">
-      <label for="stdName">विद्यार्थी का पूरा नाम (Full Name) *</label>
-      <input type="text" id="stdName" placeholder="उदा. राहुल शर्मा" required />
-    </div>
-    <div class="form-group">
-      <label for="stdRoll">अनुक्रमांक / रोल नंबर (Roll No. / ID)</label>
-      <input type="text" id="stdRoll" placeholder="उदा. VVB-2026-01" />
-    </div>
-    <div class="form-group">
-      <label for="stdYear">VVB Year (सत्र / वर्ष) *</label>
-      <select id="stdYear">
-        <option value="">-- वर्ष चुनें --</option>
-        <option value="VVB 1st Year">VVB 1st Year (प्रथम वर्ष)</option>
-        <option value="VVB 2nd Year">VVB 2nd Year (द्वितीय वर्ष)</option>
-        <option value="VVB 3rd Year">VVB 3rd Year (तृतीय वर्ष)</option>
-        <option value="VVB 4th Year">VVB 4th Year (चतुर्थ वर्ष)</option>
-        <option value="VVB Alumnus / Other">अन्य / भूतपूर्व</option>
-      </select>
-    </div>
-    <button class="btn-primary" onclick="startExam()">परीक्षा प्रारंभ करें</button>
-  </div>
+  <!-- STEP 1: HOME PAGE -->
+  <div id="page-home" class="hero-section">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Swami_Vivekananda_1893_Scanned_Image.jpg/440px-Swami_Vivekananda_1893_Scanned_Image.jpg" 
+      alt="Swami Vivekananda" 
+      class="swami-photo" 
+    />
+    <div class="hero-quote">“उठो, जागो और तब तक मत रुको जब तक लक्ष्य प्राप्त न हो जाए।”</div>
 
-  <!-- 2. Exam Screen -->
-  <div id="screen-exam" style="display:none;">
-    <div class="student-bar">
-      <div>
-        <span id="bar-name"></span> | <span id="bar-year" style="color:#b45309;"></span>
+    <h2 style="font-size:1.3rem; margin-bottom:1.5rem; color:#1e293b;">कृपया स्वाध्याय एवं परीक्षा विषय चुनें</h2>
+    
+    <div class="menu-grid">
+      <div class="menu-card" onclick="selectSection('ramakrishna', 'श्रीरामकृष्ण देव')">
+        <h3>श्रीरामकृष्ण देव</h3>
+        <span>20 प्रश्न | परीक्षा प्रारंभ करें →</span>
       </div>
-      <div id="bar-roll" style="font-size: 0.9rem; color:#64748b;"></div>
+      <div class="menu-card" onclick="selectSection('vivekananda', 'स्वामी विवेकानन्द')">
+        <h3>स्वामी विवेकानन्द</h3>
+        <span>20 प्रश्न | परीक्षा प्रारंभ करें →</span>
+      </div>
+      <div class="menu-card" onclick="selectSection('saradadevi', 'श्री माँ सारदा देवी')">
+        <h3>श्री माँ सारदा देवी</h3>
+        <span>20 प्रश्न | परीक्षा प्रारंभ करें →</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: REGISTRATION FORM -->
+  <div id="page-register" style="display:none;">
+    <div class="reg-box">
+      <div class="category-badge" id="reg-category-label">विषय: चयन करें</div>
+      <h2 style="margin-top:0; font-size:1.25rem; color:#78350f;">परीक्षार्थी पंजीकरण (Registration)</h2>
+
+      <div class="form-group">
+        <label for="stdName">विद्यार्थी का पूरा नाम (Full Name) *</label>
+        <input type="text" id="stdName" placeholder="उदा. राहुल शर्मा" required />
+      </div>
+
+      <div class="form-group">
+        <label for="stdRoll">अनुक्रमांक / रोल नंबर (Roll No. / Student ID)</label>
+        <input type="text" id="stdRoll" placeholder="उदा. VVB-2026-01" />
+      </div>
+
+      <div class="form-group">
+        <label for="stdYear">VVB Year (सत्र / वर्ष) *</label>
+        <select id="stdYear">
+          <option value="">-- वर्ष चुनें --</option>
+          <option value="VVB 1st Year">VVB 1st Year (प्रथम वर्ष)</option>
+          <option value="VVB 2nd Year">VVB 2nd Year (द्वितीय वर्ष)</option>
+          <option value="VVB 3rd Year">VVB 3rd Year (तृतीय वर्ष)</option>
+          <option value="VVB 4th Year">VVB 4th Year (चतुर्थ वर्ष)</option>
+          <option value="अन्य / स्वाध्यायी">अन्य / स्वाध्यायी</option>
+        </select>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        <button class="btn btn-secondary" onclick="goHome()">← मुख्य पृष्ठ</button>
+        <button class="btn" onclick="submitRegistration()">परीक्षा प्रारंभ करें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: QUIZ SECTION -->
+  <div id="page-quiz" style="display:none;">
+    <div class="info-bar">
+      <div>
+        <span id="quiz-std-name"></span> | <span id="quiz-std-year" style="color:#b45309;"></span>
+      </div>
+      <div>
+        <strong>विषय:</strong> <span id="quiz-category" style="color:#b45309;"></span>
+      </div>
     </div>
 
     <form id="quizForm">
       <div id="questions-container"></div>
       <div style="text-align: center; margin-top: 2rem;">
-        <button type="button" class="btn-primary" onclick="evaluateExam()">परीक्षा जमा करें (Submit Exam)</button>
+        <button type="button" class="btn" onclick="submitQuiz()">उत्तर जमा करें (Submit Answers)</button>
       </div>
     </form>
   </div>
 
-  <!-- 3. Result Analysis Screen -->
-  <div id="screen-result" class="analysis-container">
-    <div class="student-bar">
+  <!-- STEP 4: RESULT ANALYSIS -->
+  <div id="page-result" style="display:none;">
+    <div class="info-bar">
       <div>
         <strong>परीक्षार्थी:</strong> <span id="res-name"></span> (<span id="res-year"></span>)
       </div>
-      <div><strong>अनुक्रमांक:</strong> <span id="res-roll"></span></div>
+      <div><strong>विषय:</strong> <span id="res-topic"></span></div>
     </div>
 
-    <h2 style="font-size:1.3rem; margin-top:1rem; text-align:center;">परीक्षा परिणाम विश्लेषण (Result Analysis)</h2>
+    <h2 style="font-size:1.35rem; margin-top:1.2rem; text-align:center;">परीक्षा परिणाम विश्लेषण (Result Analysis)</h2>
 
     <div class="stats-grid">
       <div class="stat-card total">
-        <div class="stat-num" id="stat-total">20</div>
+        <div class="stat-num" id="stat-total">0</div>
         <div>कुल प्रश्न</div>
       </div>
       <div class="stat-card correct">
@@ -245,147 +360,116 @@
     </div>
 
     <div style="text-align:center; margin-bottom: 2rem;" class="no-print">
-      <button class="btn-primary" onclick="window.print()">परिणाम प्रिंट / PDF सेव करें</button>
-      <button class="btn-primary" style="background:#475569; margin-left: 0.5rem;" onclick="location.reload()">नया विद्यार्थी लॉगिन</button>
+      <button class="btn" onclick="window.print()">परिणाम प्रिंट / PDF सेव करें</button>
+      <button class="btn btn-secondary" onclick="goHome()">मुख्य पृष्ठ पर लौटें</button>
     </div>
 
-    <h3 style="border-bottom: 1px solid #cbd5e1; padding-bottom: 0.5rem;">विस्तृत प्रश्नवार विश्लेषण (Detailed Review):</h3>
+    <h3 style="border-bottom: 1px solid #cbd5e1; padding-bottom: 0.5rem;">विस्तृत प्रश्नवार समीक्षा (Detailed Review):</h3>
     <div id="review-container"></div>
   </div>
 </div>
 
 <script>
-  const questionBank = [
-    {
-      id: 1,
-      q: "श्रीरामकृष्णदेव के जन्म से पहले उनके पिता तीर्थयात्रा के लिए किस स्थान पर गए थे?",
-      options: { A: "अयोध्या", B: "गया", C: "वृन्दावन", D: "इनमें से कोई नहीं" },
-      ans: "B"
-    },
-    {
-      id: 2,
-      q: "श्रीरामकृष्णदेव का बचपन का नाम क्या था?",
-      options: { A: "दामोदर", B: "लीलाधर", C: "गदाधर", D: "इनमें से कोई नहीं" },
-      ans: "C"
-    },
-    {
-      id: 3,
-      q: "श्रीरामकृष्णदेव के सबसे बड़े भाई का नाम क्या था?",
-      options: { A: "रामकुमार", B: "रामनाथ", C: "रामेन्द्र", D: "इनमें से कोई नहीं" },
-      ans: "A"
-    },
-    {
-      id: 4,
-      q: "श्रीरामकृष्णदेव का जन्मस्थान कौन-सा है?",
-      options: { A: "डेरे", B: "कामारपुकुर", C: "मुकुन्दपुर", D: "इनमें से कोई नहीं" },
-      ans: "B"
-    },
-    {
-      id: 5,
-      q: "श्रीरामकृष्णदेव की माता का नाम क्या था?",
-      options: { A: "प्रसन्नमयी देवी", B: "चन्द्रमणि देवी", C: "प्रभामणि देवी", D: "इनमें से कोई नहीं" },
-      ans: "B"
-    },
-    {
-      id: 6,
-      q: "श्रीरामकृष्णदेव को संन्यास देने वाले गुरु का नाम क्या था?",
-      options: { A: "चमेली पुरी", B: "भास्वरानन्द पुरी", C: "तोतापुरी", D: "इनमें से कोई नहीं" },
-      ans: "C"
-    },
-    {
-      id: 7,
-      q: "श्रीरामकृष्णदेव के कुलदेवता का नाम क्या था?",
-      options: { A: "रघुवीर", B: "गणेश", C: "श्रीकृष्ण", D: "इनमें से कोई नहीं" },
-      ans: "A"
-    },
-    {
-      id: 8,
-      q: "श्रीरामकृष्णदेव किस स्थान पर कल्पतरु बने थे?",
-      options: { A: "दक्षिणेश्वर", B: "काशीपुर", C: "श्यामपुकुर", D: "इनमें से कोई नहीं" },
-      ans: "B"
-    },
-    {
-      id: 9,
-      q: "श्रीरामकृष्णदेव के पिता का नाम क्या था?",
-      options: { A: "खुदीराम", B: "रामकुमार", C: "माणिकराम", D: "इनमें से कोई नहीं" },
-      ans: "A"
-    },
-    {
-      id: 10,
-      q: "श्रीरामकृष्णदेव ने किस स्थान पर महासमाधि प्राप्त की?",
-      options: { A: "दक्षिणेश्वर", B: "काशीपुर", C: "श्यामपुकुर", D: "इनमें से कोई नहीं" },
-      ans: "B"
-    },
-    {
-      id: 11,
-      q: "श्रीरामकृष्णदेव ने अपने उपनयन संस्कार के समय प्रथम भिक्षा किससे ग्रहण की थी?",
-      options: { A: "प्रसन्नमयी देवी", B: "चन्द्रमणि देवी", C: "धनी, लोहारिन", D: "इनमें से कोई नहीं" },
-      ans: "C"
-    },
-    {
-      id: 12,
-      q: "श्रीरामकृष्णदेव को तंत्र साधना की दीक्षा किसने दी थी?",
-      options: { A: "रानी रासमणि", B: "भैरवी ब्राह्मणी", C: "रानी भवानी", D: "इनमें से कोई नहीं" },
-      ans: "B"
-    },
-    {
-      id: 13,
-      q: "श्री रामकृष्ण परमहंसदेव का जन्म कब हुआ था?",
-      options: { A: "18 फरवरी 1836", B: "12 जनवरी 1863", C: "16 अगस्त 1886", D: "5 सितंबर 1836" },
-      ans: "A"
-    },
-    {
-      id: 14,
-      q: "श्रीरामकृष्णदेव को ‘रामलला’ किसने प्रदान किए थे?",
-      options: { A: "रानी रासमणि", B: "भैरवी ब्राह्मणी", C: "जटाधारी", D: "इनमें से कोई नहीं" },
-      ans: "C"
-    },
-    {
-      id: 15,
-      q: "श्रीरामकृष्णदेव किसे अपना ‘आध्यात्मिक पुत्र’ मानते थे?",
-      options: { A: "राखाल", B: "नरेन", C: "बाबूराम", D: "इनमें से कोई नहीं" },
-      ans: "A"
-    },
-    {
-      id: 16,
-      q: "दक्षिणेश्वर काली मंदिर में पुजारी के रूप में कार्य करने वाले श्रीरामकृष्णदेव के चचेरे भाई का नाम क्या था?",
-      options: { A: "हृदय", B: "हलधारी", C: "रामेश्वर", D: "इनमें से कोई नहीं" },
-      ans: "A"
-    },
-    {
-      id: 17,
-      q: "‘श्रीश्रीरामकृष्ण-लीलाप्रसंग’ पुस्तक किसने लिखी थी?",
-      options: { A: "ब्रह्मानन्द", B: "विवेकानन्द", C: "सारदानन्द", D: "इनमें से कोई नहीं" },
-      ans: "C"
-    },
-    {
-      id: 18,
-      q: "श्रीरामकृष्णदेव की आध्यात्मिक साधना का प्रमुख केन्द्र कौन-सा स्थान था?",
-      options: { A: "काशी", B: "दक्षिणेश्वर", C: "वृन्दावन", D: "पुरी" },
-      ans: "B"
-    },
-    {
-      id: 19,
-      q: "‘जितने मत, उतने पथ’ का मुख्य भाव क्या है?",
-      options: {
-        A: "सभी धर्मों के बीच संघर्ष होना चाहिए",
-        B: "केवल एक धर्म का पालन करना चाहिए",
-        C: "विभिन्न धर्म ईश्वर तक पहुँचने के अलग-अलग मार्ग हो सकते हैं",
-        D: "धर्म का कोई महत्व नहीं है"
-      },
-      ans: "C"
-    },
-    {
-      id: 20,
-      q: "श्री रामकृष्ण परमहंसदेव ने महासमाधि कब ली?",
-      options: { A: "15 अगस्त 1886", B: "16 अगस्त 1886", C: "1 जनवरी 1886", D: "5 जुलाई 1886" },
-      ans: "B"
-    }
-  ];
+  const questionDatabases = {
+    // 1. SHRI RAMAKRISHNA DEV
+    ramakrishna: [
+      { id: 1, q: "श्रीरामकृष्णदेव के जन्म से पहले उनके पिता तीर्थयात्रा के लिए किस स्थान पर गए थे?", options: { A: "अयोध्या", B: "गया", C: "वृन्दावन", D: "इनमें से कोई नहीं" }, ans: "B" },
+      { id: 2, q: "श्रीरामकृष्णदेव का बचपन का नाम क्या था?", options: { A: "दामोदर", B: "लीलाधर", C: "गदाधर", D: "इनमें से कोई नहीं" }, ans: "C" },
+      { id: 3, q: "श्रीरामकृष्णदेव के सबसे बड़े भाई का नाम क्या था?", options: { A: "रामकुमार", B: "रामनाथ", C: "रामेन्द्र", D: "इनमें से कोई नहीं" }, ans: "A" },
+      { id: 4, q: "श्रीरामकृष्णदेव का जन्मस्थान कौन-सा है?", options: { A: "डेरे", B: "कामारपुकुर", C: "मुकुन्दपुर", D: "इनमें से कोई नहीं" }, ans: "B" },
+      { id: 5, q: "श्रीरामकृष्णदेव की माता का नाम क्या था?", options: { A: "प्रसन्नमयी देवी", B: "चन्द्रमणि देवी", C: "प्रभामणि देवी", D: "इनमें से कोई नहीं" }, ans: "B" },
+      { id: 6, q: "श्रीरामकृष्णदेव को संन्यास देने वाले गुरु का नाम क्या था?", options: { A: "चमेली पुरी", B: "भास्वरानन्द पुरी", C: "तोतापुरी", D: "इनमें से कोई नहीं" }, ans: "C" },
+      { id: 7, q: "श्रीरामकृष्णदेव के कुलदेवता का नाम क्या था?", options: { A: "रघुवीर", B: "गणेश", C: "श्रीकृष्ण", D: "इनमें से कोई नहीं" }, ans: "A" },
+      { id: 8, q: "श्रीरामकृष्णदेव किस स्थान पर कल्पतरु बने थे?", options: { A: "दक्षिणेश्वर", B: "काशीपुर", C: "श्यामपुकुर", D: "इनमें से कोई नहीं" }, ans: "B" },
+      { id: 9, q: "श्रीरामकृष्णदेव के पिता का नाम क्या था?", options: { A: "खुदीराम", B: "रामकुमार", C: "माणिकराम", D: "इनमें से कोई नहीं" }, ans: "A" },
+      { id: 10, q: "श्रीरामकृष्णदेव ने किस स्थान पर महासमाधि प्राप्त की?", options: { A: "दक्षिणेश्वर", B: "काशीपुर", C: "श्यामपुकुर", D: "इनमें से कोई नहीं" }, ans: "B" },
+      { id: 11, q: "श्रीरामकृष्णदेव ने अपने उपनयन संस्कार के समय प्रथम भिक्षा किससे ग्रहण की थी?", options: { A: "प्रसन्नमयी देवी", B: "चन्द्रमणि देवी", C: "धनी, लोहारिन", D: "इनमें से कोई नहीं" }, ans: "C" },
+      { id: 12, q: "श्रीरामकृष्णदेव को तंत्र साधना की दीक्षा किसने दी थी?", options: { A: "रानी रासमणि", B: "भैरवी ब्राह्मणी", C: "रानी भवानी", D: "इनमें से कोई नहीं" }, ans: "B" },
+      { id: 13, q: "श्री रामकृष्ण परमहंसदेव का जन्म कब हुआ था?", options: { A: "18 फरवरी 1836", B: "12 जनवरी 1863", C: "16 अगस्त 1886", D: "5 सितंबर 1836" }, ans: "A" },
+      { id: 14, q: "श्रीरामकृष्णदेव को ‘रामलला’ किसने प्रदान किए थे?", options: { A: "रानी रासमणि", B: "भैरवी ब्राह्मणी", C: "जटाधारी", D: "इनमें से कोई नहीं" }, ans: "C" },
+      { id: 15, q: "श्रीरामकृष्णदेव किसे अपना ‘आध्यात्मिक पुत्र’ मानते थे?", options: { A: "राखाल", B: "नरेन", C: "बाबूराम", D: "इनमें से कोई नहीं" }, ans: "A" },
+      { id: 16, q: "दक्षिणेश्वर काली मंदिर में पुजारी के रूप में कार्य करने वाले श्रीरामकृष्णदेव के चचेरे भाई का नाम क्या था?", options: { A: "हृदय", B: "हलधारी", C: "रामेश्वर", D: "इनमें से कोई नहीं" }, ans: "A" },
+      { id: 17, q: "‘श्रीश्रीरामकृष्ण-लीलाप्रसंग’ पुस्तक किसने लिखी थी?", options: { A: "ब्रह्मानन्द", B: "विवेकानन्द", C: "सारदानन्द", D: "इनमें से कोई नहीं" }, ans: "C" },
+      { id: 18, q: "श्रीरामकृष्णदेव की आध्यात्मिक साधना का प्रमुख केन्द्र कौन-सा स्थान था?", options: { A: "काशी", B: "दक्षिणेश्वर", C: "वृन्दावन", D: "पुरी" }, ans: "B" },
+      { id: 19, q: "‘जितने मत, उतने पथ’ का मुख्य भाव क्या है?", options: { A: "सभी धर्मों के बीच संघर्ष होना चाहिए", B: "केवल एक धर्म का पालन करना चाहिए", C: "विभिन्न धर्म ईश्वर तक पहुँचने के अलग-अलग मार्ग हो सकते हैं", D: "धर्म का कोई महत्व नहीं है" }, ans: "C" },
+      { id: 20, q: "श्री रामकृष्ण परमहंसदेव ने महासमाधि कब ली?", options: { A: "15 अगस्त 1886", B: "16 अगस्त 1886", C: "1 जनवरी 1886", D: "5 जुलाई 1886" }, ans: "B" }
+    ],
 
-  let studentProfile = {};
+    // 2. SWAMI VIVEKANANDA
+    vivekananda: [
+      { id: 1, q: "स्वामी विवेकानन्द का जन्म कब हुआ था?", options: { A: "12 जनवरी 1863", B: "15 अगस्त 1865", C: "25 दिसंबर 1861", D: "2 अक्टूबर 1863" }, ans: "A" },
+      { id: 2, q: "स्वामी विवेकानन्द के गुरु कौन थे?", options: { A: "स्वामी दयानन्द सरस्वती", B: "श्रीरामकृष्णदेव", C: "महर्षि अरविन्द", D: "रमण महर्षि" }, ans: "B" },
+      { id: 3, q: "स्वामी विवेकानन्द ने 1893 में किस प्रसिद्ध सम्मेलन में भारत का प्रतिनिधित्व किया था?", options: { A: "विश्व धर्म संसद", B: "विश्व शांति सम्मेलन", C: "विश्व साहित्य सम्मेलन", D: "विश्व संस्कृति सम्मेलन" }, ans: "A" },
+      { id: 4, q: "1893 में विश्व धर्म संसद का आयोजन कहाँ हुआ था?", options: { A: "न्यूयॉर्क", B: "शिकागो", C: "बोस्टन", D: "वॉशिंगटन" }, ans: "B" },
+      { id: 5, q: "स्वामी विवेकानन्द ने किस संस्था की स्थापना की थी?", options: { A: "आर्य समाज", B: "रामकृष्ण मठ एवं रामकृष्ण मिशन", C: "ब्रह्म समाज", D: "प्रार्थना समाज" }, ans: "B" },
+      { id: 6, q: "स्वामी विवेकानन्द ने ‘रामकृष्ण मिशन’ की स्थापना कब की थी?", options: { A: "1 मई 1897", B: "10 मई 1897", C: "1 जुलाई 1897", D: "15 अगस्त 1897" }, ans: "A" },
+      { id: 7, q: "स्वामी विवेकानन्द ने युवाओं को मुख्य रूप से किस बात पर बल देने का संदेश दिया?", options: { A: "आत्मविश्वास और चरित्र निर्माण", B: "केवल धन-संपत्ति", C: "केवल राजनीतिक शक्ति", D: "केवल शारीरिक मनोरंजन" }, ans: "A" },
+      { id: 8, q: "स्वामी विवेकानन्द के विचार में सेवा का आधार क्या होना चाहिए?", options: { A: "प्रसिद्धि", B: "स्वार्थ", C: "मानव में ईश्वर का दर्शन", D: "पुरस्कार प्राप्त करना" }, ans: "C" },
+      { id: 9, q: "स्वामी विवेकानन्द ने भारत के उत्थान के लिए किस वर्ग को विशेष रूप से जागृत करने का आह्वान किया?", options: { A: "केवल राजाओं को", B: "युवाओं को", C: "केवल व्यापारियों को", D: "केवल विद्वानों को" }, ans: "B" },
+      { id: 10, q: "स्वामी विवेकानन्द ने भारत की महानता का मूल आधार किसे माना?", options: { A: "भौतिक संपत्ति", B: "आध्यात्मिक संस्कृति", C: "सैन्य शक्ति", D: "औद्योगिक विकास" }, ans: "B" },
+      { id: 11, q: "स्वामी विवेकानन्दजी ने महासमाधि कब ली थी?", options: { A: "4 जुलाई 1902", B: "12 जनवरी 1903", C: "15 अगस्त 1901", D: "1 जनवरी 1902" }, ans: "A" },
+      { id: 12, q: "स्वामी विवेकानन्द की जयंती भारत में किस दिवस के रूप में मनाई जाती है?", options: { A: "राष्ट्रीय युवा दिवस", B: "राष्ट्रीय शिक्षा दिवस", C: "राष्ट्रीय सेवा दिवस", D: "राष्ट्रीय आध्यात्मिक दिवस" }, ans: "A" },
+      { id: 13, q: "नरेन्द्रनाथ का पूर्व नाम क्या था?", options: { A: "सोमेश्वर", B: "चन्द्रेश्वर", C: "वीरेश्वर", D: "महेन्द्रेश्वर" }, ans: "C" },
+      { id: 14, q: "स्वामी विवेकानन्द का जन्मस्थान कौन-सा है?", options: { A: "सिमुलिया", B: "श्यामपुकुर", C: "बागबाजार", D: "बेलूर" }, ans: "A" },
+      { id: 15, q: "स्वामी विवेकानन्द के पिता का नाम क्या था?", options: { A: "विश्वनाथ दत्त", B: "तारकनाथ दत्त", C: "महेन्द्रनाथ दत्त", D: "दुर्गाचरण दत्त" }, ans: "A" },
+      { id: 16, q: "नरेन्द्रनाथ के दादा का नाम क्या था?", options: { A: "दुर्गाचरण", B: "विश्वनाथ", C: "महेन्द्रनाथ", D: "रामचन्द्र" }, ans: "A" },
+      { id: 17, q: "नरेन्द्रनाथ ने श्री रामकृष्ण के बारे में किससे सुना था?", options: { A: "विलियम हेस्टी", B: "पॉल डॉयसेन", C: "मैक्स मूलर", D: "देवेन्द्रनाथ ठाकुर" }, ans: "A" },
+      { id: 18, q: "स्वामी विवेकानन्द की पवहारी बाबा से भेंट कहाँ हुई थी?", options: { A: "गाजीपुर", B: "हाथरस", C: "मद्रास", D: "वाराणसी" }, ans: "A" },
+      { id: 19, q: "स्वामी विवेकानन्दजी की माता का नाम क्या था?", options: { A: "श्यामासुन्दरी देवी", B: "भुवनेश्वरी देवी", C: "चन्द्रमणि देवी", D: "सारदामणि देवी" }, ans: "B" },
+      { id: 20, q: "स्वामी विवेकानन्दजी पर लिखी गई रामकृष्ण मठ द्वारा प्रकाशित प्रमुख जीवनियों में कौन-सी पुस्तकें शामिल हैं?", options: { A: "The Life of Swami Vivekananda by His Eastern and Western Disciples तथा Yuganayak Vivekananda", B: "The Gospel of Sri Ramakrishna तथा Sri Sarada Devi – The Holy Mother", C: "Raja Yoga तथा Karma Yoga", D: "Inspired Talks तथा Chicago Addresses" }, ans: "A" }
+    ],
 
-  function startExam() {
+    // 3. SHRI MAA SARADA DEVI
+    saradadevi: [
+      { id: 1, q: "माँ सारदा देवी का पूरा नाम क्या था?", options: { A: "विद्यामणि मुखोपाध्याय", B: "शांतामणि मुखोपाध्याय", C: "शारदामणि मुखोपाध्याय", D: "प्रसन्नमयी मुखोपाध्याय" }, ans: "C" },
+      { id: 2, q: "माँ सारदा देवी का जन्मस्थान कौन-सा है?", options: { A: "अनूर", B: "शिहोर", C: "जयरामबाटी", D: "कामारपुकुर" }, ans: "C" },
+      { id: 3, q: "माँ सारदा देवी की माता का नाम क्या था?", options: { A: "श्यामासुन्दरी", B: "राधासुन्दरी", C: "प्रसन्नमयी", D: "योगमाया" }, ans: "A" },
+      { id: 4, q: "जयरामबाटी में किस नदी को 'माँ की गंगा' के नाम से जाना जाता है?", options: { A: "आमोदर", B: "अजय", C: "दामोदर", D: "भागीरथी" }, ans: "A" },
+      { id: 5, q: "माँ सारदा देवी की माता किस गाँव की रहने वाली थीं?", options: { A: "शिहोर", B: "देशरा", C: "अनुर", D: "जयरामबाटी" }, ans: "A" },
+      { id: 6, q: "माँ सारदा देवी के पिता का नाम क्या था?", options: { A: "रामचन्द्र", B: "रामकुमार", C: "रामनाथ", D: "रामलाल" }, ans: "A" },
+      { id: 7, q: "माँ सारदा देवी ने पंचतपा तपस्या कहाँ की थी?", options: { A: "वृन्दावन", B: "नीलाम्बर मुखर्जी के बगीचे का मकान", C: "जयरामबाटी", D: "दक्षिणेश्वर" }, ans: "B" },
+      { id: 8, q: "माँ सारदा देवी का जन्म कब हुआ था?", options: { A: "22 दिसम्बर 1853", B: "25 दिसम्बर 1853", C: "5 जनवरी 1854", D: "15 अगस्त 1853" }, ans: "A" },
+      { id: 9, q: "श्री रामकृष्ण देव और माँ सारदा देवी का विवाह किस स्थान पर हुआ था?", options: { A: "कामारपुकुर", B: "जयरामबाटी", C: "दक्षिणेश्वर", D: "काशीपुर" }, ans: "B" },
+      { id: 10, q: "दक्षिणेश्वर में माँ सारदा देवी मुख्य रूप से कहाँ रहती थीं?", options: { A: "पंचवटी में", B: "नहबत में", C: "काशीपुर उद्यान में", D: "मंदिर के गर्भगृह में" }, ans: "B" },
+      { id: 11, q: "श्री रामकृष्ण ने माँ सारदा देवी को किस रूप में पूजा थी?", options: { A: "दुर्गा रूप में", B: "षोडशी रूप में", C: "काली रूप में", D: "लक्ष्मी रूप में" }, ans: "B" },
+      { id: 12, q: "माँ सारदा देवी ने अपने जीवन में किस आदर्श को विशेष रूप से प्रस्तुत किया?", options: { A: "त्याग और सेवा", B: "धन-संग्रह", C: "राजनीतिक नेतृत्व", D: "सांसारिक प्रतिष्ठा" }, ans: "A" },
+      { id: 13, q: "माँ सारदा देवी के अनुसार हमें दूसरों के प्रति कैसा दृष्टिकोण रखना चाहिए?", options: { A: "आलोचना का", B: "अपना समझने का", C: "उदासीनता का", D: "भय का" }, ans: "B" },
+      { id: 14, q: "श्री रामकृष्ण के महासमाधि के बाद माँ सारदा देवी ने क्या भूमिका निभाई?", options: { A: "उन्होंने आध्यात्मिक मार्गदर्शक के रूप में शिष्यों का मार्गदर्शन किया", B: "उन्होंने राजनीति में प्रवेश किया", C: "उन्होंने सार्वजनिक जीवन त्याग दिया", D: "उन्होंने विदेश यात्रा की" }, ans: "A" },
+      { id: 15, q: "माँ सारदा देवी का जीवन किस गुण का उत्कृष्ट उदाहरण माना जाता है?", options: { A: "अहंकार", B: "मातृत्व, करुणा और त्याग", C: "भौतिक सफलता", D: "शक्ति प्रदर्शन" }, ans: "B" },
+      { id: 16, q: "माँ सारदा देवी को श्री रामकृष्ण के शिष्यों ने किस भाव से स्वीकार किया?", options: { A: "गुरु-माता के रूप में", B: "राजनीतिक नेता के रूप में", C: "विदुषी के रूप में", D: "गृहस्थ महिला के रूप में मात्र" }, ans: "A" },
+      { id: 17, q: "माँ सारदा देवी के जीवन का प्रमुख संदेश क्या था?", options: { A: "दूसरों में दोष देखना", B: "प्रेम, करुणा, सेवा और आत्मसंयम", C: "धन का संग्रह करना", D: "संसार से घृणा करना" }, ans: "B" },
+      { id: 18, q: "माँ सारदा देवी का अंतिम समय मुख्यतः किस स्थान से संबंधित है?", options: { A: "उद्बोधन भवन, बागबाजार, कलकत्ता", B: "दक्षिणेश्वर", C: "कामारपुकुर", D: "पुरी" }, ans: "A" },
+      { id: 19, q: "माँ सारदा देवी के निकट रहने वाली प्रसिद्ध महिला कौन थीं?", options: { A: "गोलाप माँ", B: "रानी रासमणि", C: "भैरवी ब्राह्मणी", D: "योगमाया" }, ans: "A" },
+      { id: 20, q: "माँ सारदा देवी ने महासमाधि कब प्राप्त की?", options: { A: "16 अगस्त 1886", B: "20 जुलाई 1920", C: "5 जुलाई 1902", D: "22 दिसम्बर 1920" }, ans: "B" }
+    ]
+  };
+
+  let selectedKey = "";
+  let selectedTitle = "";
+  let currentQuestions = [];
+  let studentData = {};
+
+  function showScreen(screenId) {
+    ['page-home', 'page-register', 'page-quiz', 'page-result'].forEach(id => {
+      document.getElementById(id).style.display = (id === screenId) ? 'block' : 'none';
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function goHome() {
+    showScreen('page-home');
+  }
+
+  function selectSection(key, title) {
+    selectedKey = key;
+    selectedTitle = title;
+    currentQuestions = questionDatabases[key] || [];
+
+    document.getElementById('reg-category-label').innerText = "विषय: " + title;
+    showScreen('page-register');
+  }
+
+  function submitRegistration() {
     const name = document.getElementById('stdName').value.trim();
     const year = document.getElementById('stdYear').value;
     const roll = document.getElementById('stdRoll').value.trim() || 'N/A';
@@ -399,35 +483,30 @@
       return;
     }
 
-    studentProfile = { name, year, roll };
+    studentData = { name, year, roll, topic: selectedTitle };
 
-    // Update Bar
-    document.getElementById('bar-name').innerText = "परीक्षार्थी: " + name;
-    document.getElementById('bar-year').innerText = year;
-    document.getElementById('bar-roll').innerText = "अनुक्रमांक: " + roll;
+    document.getElementById('quiz-std-name').innerText = "परीक्षार्थी: " + name;
+    document.getElementById('quiz-std-year').innerText = year;
+    document.getElementById('quiz-category').innerText = selectedTitle;
 
-    // Render questions
-    renderQuestions();
-
-    document.getElementById('screen-reg').style.display = 'none';
-    document.getElementById('screen-exam').style.display = 'block';
-    window.scrollTo(0, 0);
+    renderQuiz();
+    showScreen('page-quiz');
   }
 
-  function renderQuestions() {
+  function renderQuiz() {
     const container = document.getElementById('questions-container');
     container.innerHTML = "";
 
-    questionBank.forEach((item, index) => {
+    currentQuestions.forEach((item, index) => {
       const qDiv = document.createElement('div');
       qDiv.className = 'q-card';
-      
+
       let optionsHtml = '';
-      for (const [key, value] of Object.entries(item.options)) {
+      for (const [optKey, optVal] of Object.entries(item.options)) {
         optionsHtml += `
           <label class="opt-label">
-            <input type="radio" name="q_${item.id}" value="${key}">
-            <strong>${key}.</strong> ${value}
+            <input type="radio" name="q_${item.id}" value="${optKey}">
+            <strong>${optKey}.</strong> ${optVal}
           </label>
         `;
       }
@@ -440,17 +519,17 @@
     });
   }
 
-  function evaluateExam() {
+  function submitQuiz() {
     let answered = 0;
-    questionBank.forEach(item => {
+    currentQuestions.forEach(item => {
       if (document.querySelector(`input[name="q_${item.id}"]:checked`)) {
         answered++;
       }
     });
 
-    if (answered < questionBank.length) {
-      const confirmSubmit = confirm(`आपने केवल ${answered} / ${questionBank.length} प्रश्नों के उत्तर दिए हैं। क्या आप फिर भी परीक्षा जमा करना चाहते हैं?`);
-      if (!confirmSubmit) return;
+    if (answered < currentQuestions.length) {
+      const proceed = confirm(`आपने ${currentQuestions.length} में से केवल ${answered} प्रश्नों के उत्तर दिए हैं। क्या आप फिर भी परीक्षा जमा करना चाहते हैं?`);
+      if (!proceed) return;
     }
 
     let score = 0;
@@ -458,7 +537,7 @@
     const reviewBox = document.getElementById('review-container');
     reviewBox.innerHTML = "";
 
-    questionBank.forEach((item, idx) => {
+    currentQuestions.forEach((item, idx) => {
       const selected = document.querySelector(`input[name="q_${item.id}"]:checked`);
       const userChoice = selected ? selected.value : null;
       const isCorrect = userChoice === item.ans;
@@ -483,26 +562,24 @@
         </div>
         <div style="font-weight:600; margin-bottom: 0.5rem;">${idx + 1}. ${item.q}</div>
         <div style="font-size:0.95rem; margin-bottom: 0.25rem;">
-          <strong>आपका चयन:</strong> ${userText}
+          <strong>आपका उत्तर:</strong> ${userText}
         </div>
         ${!isCorrect ? `<div style="font-size:0.95rem; color:#15803d; font-weight:600;"><strong>सही उत्तर:</strong> ${correctText}</div>` : ''}
       `;
       reviewBox.appendChild(revItem);
     });
 
-    // Populate Results
-    document.getElementById('res-name').innerText = studentProfile.name;
-    document.getElementById('res-year').innerText = studentProfile.year;
-    document.getElementById('res-roll').innerText = studentProfile.roll;
+    // Populate Analytics
+    document.getElementById('res-name').innerText = studentData.name;
+    document.getElementById('res-year').innerText = studentData.year;
+    document.getElementById('res-topic').innerText = studentData.topic;
 
-    document.getElementById('stat-total').innerText = questionBank.length;
+    document.getElementById('stat-total').innerText = currentQuestions.length;
     document.getElementById('stat-correct').innerText = score;
     document.getElementById('stat-wrong').innerText = wrong;
-    document.getElementById('stat-pct').innerText = `${Math.round((score / questionBank.length) * 100)}%`;
+    document.getElementById('stat-pct').innerText = `${Math.round((score / currentQuestions.length) * 100)}%`;
 
-    document.getElementById('screen-exam').style.display = 'none';
-    document.getElementById('screen-result').style.display = 'block';
-    window.scrollTo(0, 0);
+    showScreen('page-result');
   }
 </script>
 
