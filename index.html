@@ -23,28 +23,56 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.06);
     }
 
+    /* Breadcrumbs */
+    .breadcrumbs {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+    .breadcrumbs a {
+      color: #b45309;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .breadcrumbs a:hover {
+      color: #92400e;
+      text-decoration: underline;
+    }
+
     /* Common Header */
     .portal-header {
       text-align: center;
       border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 1.2rem;
+      padding-bottom: 1.5rem;
       margin-bottom: 1.8rem;
     }
     .portal-header h1 {
       font-size: 1.7rem;
       color: #b45309;
-      margin: 0 0 0.3rem 0;
+      margin: 0 0 0.5rem 0;
     }
-    .portal-header p {
-      margin: 0;
-      color: #64748b;
-      font-size: 0.95rem;
+    .portal-badge {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid #fde68a;
     }
 
     /* Step 1: Home Page */
     .hero-section {
       text-align: center;
-      padding: 1rem 0 2rem 0;
+      padding: 0.5rem 0 2rem 0;
+    }
+
+    /* Image Animation */
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(180, 83, 9, 0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(180, 83, 9, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(180, 83, 9, 0); }
     }
     .swami-photo {
       width: 170px;
@@ -55,7 +83,9 @@
       border: 4px solid #fef3c7;
       box-shadow: 0 4px 14px rgba(180, 83, 9, 0.2);
       margin-bottom: 1rem;
+      animation: pulseGlow 2.5s infinite; /* Added subtle pulse */
     }
+
     .hero-quote {
       font-size: 1.1rem;
       color: #92400e;
@@ -63,39 +93,65 @@
       font-style: italic;
       margin-bottom: 2rem;
     }
+    
+    /* Menu Cards */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.25rem;
     }
     .menu-card {
-      background: #fffbeb;
-      border: 2px solid #fde68a;
+      background: #fffdf5; /* slightly brightened */
+      border: 1px solid #fde68a;
       border-radius: 12px;
       padding: 1.75rem 1.2rem;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Faint default shadow */
     }
     .menu-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(180, 83, 9, 0.15);
+      transform: translateY(-4px); /* Lift effect */
+      box-shadow: 0 10px 20px rgba(180, 83, 9, 0.12); /* Deepened shadow on hover */
       border-color: #b45309;
-      background: #fef3c7;
+      background: #fffbeb;
+    }
+    .card-icon {
+      font-size: 2rem;
+      color: #fcd34d;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    .menu-card:hover .card-icon {
+      color: #b45309;
     }
     .menu-card h3 {
       margin: 0;
       font-size: 1.25rem;
       color: #78350f;
     }
-    .menu-card span {
+    .card-meta {
       font-size: 0.85rem;
-      color: #b45309;
-      margin-top: 0.4rem;
+      color: #92400e;
+      margin: 0.5rem 0 1rem 0;
       font-weight: 500;
+    }
+    /* Distinct CTA Button */
+    .card-cta {
+      background: #fde68a;
+      color: #92400e;
+      font-size: 0.85rem;
+      padding: 0.4rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .menu-card:hover .card-cta {
+      background: #b45309;
+      color: #fff;
     }
 
     /* Step 2: Registration */
@@ -131,6 +187,11 @@
       border-radius: 6px;
       font-size: 1rem;
       background: #fff;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus {
+      outline: none;
+      border-color: #b45309;
     }
 
     /* Buttons */
@@ -144,9 +205,10 @@
       border-radius: 6px;
       cursor: pointer;
       display: inline-block;
-      transition: background 0.2s;
+      transition: background 0.2s, transform 0.1s;
     }
     .btn:hover { background: #92400e; }
+    .btn:active { transform: scale(0.98); }
     .btn-secondary {
       background: #64748b;
       margin-right: 0.5rem;
@@ -232,6 +294,16 @@
     .badge-pass { background: #16a34a; color: #fff; }
     .badge-fail { background: #dc2626; color: #fff; }
 
+    /* Footer */
+    .portal-footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
     @media print {
       body { background: #fff; padding: 0; }
       .wrapper { box-shadow: none; padding: 0; max-width: 100%; }
@@ -242,10 +314,15 @@
 <body>
 
 <div class="wrapper">
+  
+  <div class="breadcrumbs no-print" id="breadcrumb" style="display:none;">
+    <a href="#" onclick="goHome()">मुख्य पृष्ठ (Home)</a> &rsaquo; <span id="breadcrumb-current">परीक्षा</span>
+  </div>
+
   <!-- Portal Header -->
   <div class="portal-header">
     <h1>रामकृष्ण मठ नागपुर</h1>
-    <p>Exam Portal</p>
+    <div class="portal-badge">परीक्षा पोर्टल (Exam Portal)</div>
   </div>
 
   <!-- STEP 1: HOME PAGE -->
@@ -261,16 +338,22 @@
     
     <div class="menu-grid">
       <div class="menu-card" onclick="selectSection('ramakrishna', 'श्रीरामकृष्ण देव')">
+        <div class="card-icon">ॐ</div>
         <h3>श्रीरामकृष्ण देव</h3>
-        <span>20 प्रश्न | परीक्षा प्रारंभ करें →</span>
+        <div class="card-meta">20 प्रश्न</div>
+        <div class="card-cta">परीक्षा प्रारंभ करें &rarr;</div>
       </div>
       <div class="menu-card" onclick="selectSection('vivekananda', 'स्वामी विवेकानन्द')">
+        <div class="card-icon">ॐ</div>
         <h3>स्वामी विवेकानन्द</h3>
-        <span>20 प्रश्न | परीक्षा प्रारंभ करें →</span>
+        <div class="card-meta">20 प्रश्न</div>
+        <div class="card-cta">परीक्षा प्रारंभ करें &rarr;</div>
       </div>
       <div class="menu-card" onclick="selectSection('saradadevi', 'श्री माँ सारदा देवी')">
+        <div class="card-icon">ॐ</div>
         <h3>श्री माँ सारदा देवी</h3>
-        <span>20 प्रश्न | परीक्षा प्रारंभ करें →</span>
+        <div class="card-meta">20 प्रश्न</div>
+        <div class="card-cta">परीक्षा प्रारंभ करें &rarr;</div>
       </div>
     </div>
   </div>
@@ -350,6 +433,47 @@
     <h3 style="border-bottom: 1px solid #cbd5e1; padding-bottom: 0.5rem;">विस्तृत प्रश्नवार समीक्षा (Detailed Review):</h3>
     <div id="review-container"></div>
   </div>
+
+  <!-- Footer Area (Moved Inside Wrapper for cleaner look) -->
+  <div class="portal-footer no-print">
+    <!-- Centered Button: To Know About Ramakrishna Math Nagpur -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a href="rkmnagpur.html" style="
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #c95d1b, #df7735);
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        padding: 10px 24px;
+        border-radius: 30px;
+        box-shadow: 0 4px 14px rgba(201, 93, 27, 0.28);
+        border: 1px solid #c95d1b;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      "
+      onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 18px rgba(201, 93, 27, 0.38)';"
+      onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(201, 93, 27, 0.28)';"
+      >
+        <span>To Know About Ramakrishna Math Nagpur</span>
+        <span style="font-size: 17px;">&rarr;</span>
+      </a>
+    </div>
+
+    <!-- Total Visitors Section -->
+    <div style="text-align: center; font-size: 14px; color: #64748b;">
+      <p style="margin-bottom: 8px;">Total Visitors:</p>
+      <img src="https://api.visitorbadge.io/api/visitors?path=rkmsuraj10-mj.rkmnagpur-learning-portal&label=VISITORS&labelColor=%23444444&countColor=%23c95d1b" alt="Visitor Counter" />
+    </div>
+    
+    <div style="margin-top: 15px;">
+      &copy; 2026 रामकृष्ण मठ नागपुर | स्वाध्याय एवं प्रश्नोत्तरी पोर्टल
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -371,7 +495,7 @@
       { id: 13, q: "श्री रामकृष्ण परमहंसदेव का जन्म कब हुआ था?", options: { A: "18 फरवरी 1836", B: "12 जनवरी 1863", C: "16 अगस्त 1886", D: "5 सितंबर 1836" }, ans: "A" },
       { id: 14, q: "श्रीरामकृष्णदेव को ‘रामलला’ किसने प्रदान किए थे?", options: { A: "रानी रासमणि", B: "भैरवी ब्राह्मणी", C: "जटाधारी", D: "इनमें से कोई नहीं" }, ans: "C" },
       { id: 15, q: "श्रीरामकृष्णदेव किसे अपना ‘आध्यात्मिक पुत्र’ मानते थे?", options: { A: "राखाल", B: "नरेन", C: "बाबूराम", D: "इनमें से कोई नहीं" }, ans: "A" },
-      { id: 16, q: "दक्षिणेश्वर काली मंदिर में पुजारी के रूप में कार्य करने वाले श्रीरामकृष्णदेव के चचेरे भाई का नाम क्या था?", options: { A: "हृदय", B: "हलधारी", C: "रामेश्वर", D: "इनमें से कोई नहीं" }, ans: "A" },
+      { id: 16, q: "दक्षिणेश्वर काली मंदिर में पुजारी के रूप में कार्य करने वाले श्रीरामकृष्णदेव के चचेरे भाई का नाम क्या था?", options: { A: "हृदय", B: "हलधारी", C: "रामेश्वर", D: "इनमें से कोई नहीं" }, ans: "B" },
       { id: 17, q: "‘श्रीश्रीरामकृष्ण-लीलाप्रसंग’ पुस्तक किसने लिखी थी?", options: { A: "ब्रह्मानन्द", B: "विवेकानन्द", C: "सारदानन्द", D: "इनमें से कोई नहीं" }, ans: "C" },
       { id: 18, q: "श्रीरामकृष्णदेव की आध्यात्मिक साधना का प्रमुख केन्द्र कौन-सा स्थान था?", options: { A: "काशी", B: "दक्षिणेश्वर", C: "वृन्दावन", D: "पुरी" }, ans: "B" },
       { id: 19, q: "‘जितने मत, उतने पथ’ का मुख्य भाव क्या है?", options: { A: "सभी धर्मों के बीच संघर्ष होना चाहिए", B: "केवल एक धर्म का पालन करना चाहिए", C: "विभिन्न धर्म ईश्वर तक पहुँचने के अलग-अलग मार्ग हो सकते हैं", D: "धर्म का कोई महत्व नहीं है" }, ans: "C" },
@@ -436,6 +560,15 @@
     ['page-home', 'page-register', 'page-quiz', 'page-result'].forEach(id => {
       document.getElementById(id).style.display = (id === screenId) ? 'block' : 'none';
     });
+    
+    // Toggle Breadcrumbs visibility
+    const breadcrumb = document.getElementById('breadcrumb');
+    if(screenId === 'page-home') {
+      breadcrumb.style.display = 'none';
+    } else {
+      breadcrumb.style.display = 'block';
+    }
+    
     window.scrollTo(0, 0);
   }
 
@@ -449,6 +582,8 @@
     currentQuestions = questionDatabases[key] || [];
 
     document.getElementById('reg-category-label').innerText = "विषय: " + title;
+    document.getElementById('breadcrumb-current').innerText = "पंजीकरण (" + title + ")";
+    
     showScreen('page-register');
   }
 
@@ -464,6 +599,7 @@
 
     document.getElementById('quiz-std-name').innerText = "परीक्षार्थी: " + name;
     document.getElementById('quiz-category').innerText = selectedTitle;
+    document.getElementById('breadcrumb-current').innerText = "प्रश्न पत्र (" + selectedTitle + ")";
 
     renderQuiz();
     showScreen('page-quiz');
@@ -553,43 +689,11 @@
     document.getElementById('stat-correct').innerText = score;
     document.getElementById('stat-wrong').innerText = wrong;
     document.getElementById('stat-pct').innerText = `${Math.round((score / currentQuestions.length) * 100)}%`;
+    
+    document.getElementById('breadcrumb-current').innerText = "परीक्षा परिणाम";
 
     showScreen('page-result');
   }
 </script>
-
- <!-- Centered Button: To Know About Ramakrishna Math Nagpur -->
-  <div style="text-align: center; margin-top: 32px; margin-bottom: 25px;">
-    <a href="rkmnagpur.html" style="
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #c95d1b, #df7735);
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      padding: 12px 28px;
-      border-radius: 30px;
-      box-shadow: 0 4px 14px rgba(201, 93, 27, 0.28);
-      border: 1px solid #c95d1b;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    "
-    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 18px rgba(201, 93, 27, 0.38)';"
-    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 14px rgba(201, 93, 27, 0.28)';"
-    >
-      <span>To Know About Ramakrishna Math Nagpur</span>
-      <span style="font-size: 17px;">&rarr;</span>
-    </a>
-  </div>
-
-  <!-- Total Visitors Section -->
-  <div style="text-align: center; margin-top: 20px; padding-bottom: 25px; font-size: 14px; color: #666;">
-    <p style="margin-bottom: 8px;">Total Visitors:</p>
-    <img src="https://api.visitorbadge.io/api/visitors?path=rkmsuraj10-mj.rkmnagpur-learning-portal&label=VISITORS&labelColor=%23444444&countColor=%23c95d1b" alt="Visitor Counter" />
-  </div>
-
 </body>
 </html>
