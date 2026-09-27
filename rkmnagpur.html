@@ -1,9 +1,3 @@
-<header>
-  <nav>
-    <a href="index.html">मुखपृष्ठ</a>
-    <a href="swami1.html">Ramakrishna Math Nagpur</a>
-  </nav>
-</header>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,16 +37,22 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     }
 
-    .nav-back {
-      display: inline-block;
-      margin-bottom: 20px;
+    .top-nav {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .top-nav a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 600;
       font-size: 15px;
     }
 
-    .nav-back:hover {
+    .top-nav a:hover {
       text-decoration: underline;
     }
 
@@ -164,12 +164,16 @@
 <body>
 
 <div class="container">
-  <a href="index.html" class="nav-back">&larr; Back to Exam Portal</a>
+  <!-- Navigation Header correctly placed inside container -->
+  <nav class="top-nav">
+    <a href="index.html">&larr; मुखपृष्ठ (Home)</a>
+    <a href="rkmnagpur.html">Ramakrishna Math Nagpur</a>
+  </nav>
 
   <div class="main-header">
     <h1>Ramakrishna Math Nagpur</h1>
 
-    <!-- Image positioned right below the header -->
+    <!-- Image positioned below header -->
     <div class="hero-image-wrapper">
       <img src="Rkm%20Nagpur%202026.jpg" alt="Ramakrishna Math Nagpur" class="hero-image">
     </div>
