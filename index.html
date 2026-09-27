@@ -124,7 +124,7 @@
       margin-bottom: 0.4rem;
       color: #78350f;
     }
-    .form-group input, .form-group select {
+    .form-group input {
       width: 100%;
       padding: 0.75rem;
       border: 1px solid #cbd5e1;
@@ -286,15 +286,6 @@
         <input type="text" id="stdName" placeholder="उदा. राहुल शर्मा" required />
       </div>
 
-      <div class="form-group">
-        <label for="stdRoll">अनुक्रमांक / रोल नंबर (Roll No. / Student ID)</label>
-        <input type="text" id="stdRoll" placeholder="उदा. VVB-2026-01" />
-      </div>
-
-              <option value="अन्य / स्वाध्यायी">अन्य / स्वाध्यायी</option>
-        </select>
-      </div>
-
       <div style="margin-top:1.5rem;">
         <button class="btn btn-secondary" onclick="goHome()">← मुख्य पृष्ठ</button>
         <button class="btn" onclick="submitRegistration()">परीक्षा प्रारंभ करें</button>
@@ -306,7 +297,7 @@
   <div id="page-quiz" style="display:none;">
     <div class="info-bar">
       <div>
-        <span id="quiz-std-name"></span> | <span id="quiz-std-year" style="color:#b45309;"></span>
+        <span id="quiz-std-name"></span>
       </div>
       <div>
         <strong>विषय:</strong> <span id="quiz-category" style="color:#b45309;"></span>
@@ -325,7 +316,7 @@
   <div id="page-result" style="display:none;">
     <div class="info-bar">
       <div>
-        <strong>परीक्षार्थी:</strong> <span id="res-name"></span> (<span id="res-year"></span>)
+        <strong>परीक्षार्थी:</strong> <span id="res-name"></span>
       </div>
       <div><strong>विषय:</strong> <span id="res-topic"></span></div>
     </div>
@@ -386,14 +377,7 @@
       { id: 19, q: "‘जितने मत, उतने पथ’ का मुख्य भाव क्या है?", options: { A: "सभी धर्मों के बीच संघर्ष होना चाहिए", B: "केवल एक धर्म का पालन करना चाहिए", C: "विभिन्न धर्म ईश्वर तक पहुँचने के अलग-अलग मार्ग हो सकते हैं", D: "धर्म का कोई महत्व नहीं है" }, ans: "C" },
       { id: 20, q: "श्री रामकृष्ण परमहंसदेव ने महासमाधि कब ली?", options: { A: "15 अगस्त 1886", B: "16 अगस्त 1886", C: "1 जनवरी 1886", D: "5 जुलाई 1886" }, ans: "B" }
     ],
-<!-- Wrap the Swami Vivekananda card with this anchor tag -->
-<a href="swami1.html" style="text-decoration: none; color: inherit;">
-  <div class="card">
-    <h3>स्वामी विवेकानन्द</h3>
-    <p>20 प्रश्न | परीक्षा प्रारंभ करें &rarr;</p>
-  </div>
-</a>
-    
+
     // 2. SWAMI VIVEKANANDA
     vivekananda: [
       { id: 1, q: "स्वामी विवेकानन्द का जन्म कब हुआ था?", options: { A: "12 जनवरी 1863", B: "15 अगस्त 1865", C: "25 दिसंबर 1861", D: "2 अक्टूबर 1863" }, ans: "A" },
@@ -470,22 +454,15 @@
 
   function submitRegistration() {
     const name = document.getElementById('stdName').value.trim();
-    const year = document.getElementById('stdYear').value;
-    const roll = document.getElementById('stdRoll').value.trim() || 'N/A';
 
     if (!name) {
       alert("कृपया विद्यार्थी का नाम दर्ज करें।");
       return;
     }
-    if (!year) {
-      alert("कृपया VVB Year का चयन करें।");
-      return;
-    }
 
-    studentData = { name, year, roll, topic: selectedTitle };
+    studentData = { name, topic: selectedTitle };
 
     document.getElementById('quiz-std-name').innerText = "परीक्षार्थी: " + name;
-    document.getElementById('quiz-std-year').innerText = year;
     document.getElementById('quiz-category').innerText = selectedTitle;
 
     renderQuiz();
@@ -570,7 +547,6 @@
 
     // Populate Analytics
     document.getElementById('res-name').innerText = studentData.name;
-    document.getElementById('res-year').innerText = studentData.year;
     document.getElementById('res-topic').innerText = studentData.topic;
 
     document.getElementById('stat-total').innerText = currentQuestions.length;
