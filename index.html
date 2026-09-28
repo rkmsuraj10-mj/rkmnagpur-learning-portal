@@ -338,19 +338,19 @@
     
     <div class="menu-grid">
       <div class="menu-card" onclick="selectSection('ramakrishna', 'श्रीरामकृष्ण देव')">
-        <div class="card-icon">ॐ</div>
+        <div class="card-icon"></div>
         <h3>श्रीरामकृष्ण देव</h3>
         <div class="card-meta">20 प्रश्न</div>
         <div class="card-cta">परीक्षा प्रारंभ करें &rarr;</div>
       </div>
       <div class="menu-card" onclick="selectSection('vivekananda', 'स्वामी विवेकानन्द')">
-        <div class="card-icon">ॐ</div>
+        <div class="card-icon"></div>
         <h3>स्वामी विवेकानन्द</h3>
         <div class="card-meta">20 प्रश्न</div>
         <div class="card-cta">परीक्षा प्रारंभ करें &rarr;</div>
       </div>
       <div class="menu-card" onclick="selectSection('saradadevi', 'श्री माँ सारदा देवी')">
-        <div class="card-icon">ॐ</div>
+        <div class="card-icon"></div>
         <h3>श्री माँ सारदा देवी</h3>
         <div class="card-meta">20 प्रश्न</div>
         <div class="card-cta">परीक्षा प्रारंभ करें &rarr;</div>
@@ -465,7 +465,7 @@
 
     <!-- Total Visitors Section -->
     <div style="text-align: center; font-size: 14px; color: #64748b;">
-      <p style="margin-bottom: 8px;">Total Visitors:</p>
+      <p style="margin-bottom: 8px;">Total Views:</p>
       <img src="https://api.visitorbadge.io/api/visitors?path=rkmsuraj10-mj.rkmnagpur-learning-portal&label=VISITORS&labelColor=%23444444&countColor=%23c95d1b" alt="Visitor Counter" />
     </div>
     
@@ -690,7 +690,7 @@
     document.getElementById('stat-wrong').innerText = wrong;
     document.getElementById('stat-pct').innerText = `${Math.round((score / currentQuestions.length) * 100)}%`;
     
-    document.getElementById('breadcrumb-current').innerText = "परीक्षा परिणाम";
+    document.getElementById('breadcrumb-current').innerText = "Result";
 
     showScreen('page-result');
   }
