@@ -729,3 +729,1554 @@
 </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramakrishna Math Nagpur | Learning Portal & Reflective MCQ Series</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Cinzel for Dignified Institutional Tone, Plus Jakarta Sans for Modern Readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: {
+              DEFAULT: '#D9531E',
+              50: '#FDF4EC',
+              100: '#F9E5D4',
+              200: '#F3C5A5',
+              500: '#E6551B',
+              600: '#D9531E',
+              700: '#BA3F12',
+              800: '#94310C',
+            },
+            navy: {
+              DEFAULT: '#12233E',
+              950: '#0A1424',
+              900: '#101F37',
+              800: '#162C4E',
+              700: '#1E3B68',
+              100: '#E9EEF7',
+              50: '#F4F7FC',
+            },
+            cream: {
+              50: '#FFFFFF',
+              100: '#FDFBF7',
+              200: '#FAF6F0',
+              300: '#F3ECE0',
+              400: '#E8DFC9',
+            },
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#E6C65A',
+              dark: '#AA881E',
+              glow: 'rgba(212, 175, 55, 0.28)'
+            },
+            charcoal: {
+              DEFAULT: '#27292D',
+              light: '#535862',
+              muted: '#7A808D',
+              dark: '#16181B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            institutional: ['Cinzel', 'serif'],
+          },
+          boxShadow: {
+            'subtle': '0 4px 20px -2px rgba(18, 35, 62, 0.05)',
+            'card-lift': '0 12px 30px -4px rgba(217, 83, 30, 0.12), 0 4px 12px rgba(18, 35, 62, 0.06)',
+            'halo': '0 0 45px rgba(212, 175, 55, 0.22)',
+            'gold-border': '0 0 0 1px rgba(212, 175, 55, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Smooth Scrollbar & Background Micro-patterns */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF6F0;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D9531E;
+      border-radius: 9999px;
+    }
+    .spiritual-mandala {
+      background-image: radial-gradient(#D4AF3722 1px, transparent 1px), radial-gradient(#D9531E12 1px, transparent 1px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+    .diya-glow {
+      box-shadow: 0 0 35px 8px rgba(245, 158, 11, 0.28);
+    }
+  </style>
+</head>
+<body class="bg-cream-200 text-charcoal font-sans antialiased selection:bg-saffron selection:text-white">
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-cream-300 transition-all duration-300 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Left: Ramakrishna Math Nagpur Branding -->
+        <a href="#hero" class="flex items-center space-x-3.5 group">
+          <div class="w-12 h-12 rounded-full bg-saffron-50 border-2 border-saffron flex items-center justify-center text-saffron font-institutional font-bold text-2xl shadow-inner group-hover:scale-105 transition-transform">
+            <span>ॐ</span>
+          </div>
+          <div>
+            <span class="block font-institutional font-bold text-navy-900 text-base sm:text-lg tracking-wide uppercase leading-tight group-hover:text-saffron transition-colors">
+              Ramakrishna Math Nagpur
+            </span>
+            <span class="block text-[11px] font-semibold text-saffron tracking-wider uppercase">
+              Publication & Educational Initiative
+            </span>
+          </div>
+        </a>
+
+        <!-- Right: Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-6 xl:space-x-7">
+          <a href="#hero" class="text-sm font-semibold text-charcoal hover:text-saffron transition-colors">Home</a>
+          <a href="#learn" class="text-sm font-semibold text-charcoal hover:text-saffron transition-colors">Learn</a>
+          <a href="#mcq-challenge" class="text-sm font-semibold text-charcoal hover:text-saffron transition-colors">MCQ Quiz</a>
+          <a href="#categories" class="text-sm font-semibold text-charcoal hover:text-saffron transition-colors">Study Material</a>
+          <a href="#dashboard" class="text-sm font-semibold text-charcoal hover:text-saffron transition-colors">Results</a>
+          <a href="#why-portal" class="text-sm font-semibold text-charcoal hover:text-saffron transition-colors">About</a>
+        </nav>
+
+        <!-- Right Side: Login & CTA Button -->
+        <div class="hidden sm:flex items-center space-x-4">
+          <button onclick="openLoginModal()" class="text-xs font-bold text-navy-900 hover:text-saffron uppercase tracking-wider px-3 py-2">
+            Login
+          </button>
+          <a href="#learn" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-saffron hover:bg-saffron-700 shadow-card-lift transform active:scale-95 transition-all">
+            <span>🎓 Start Learning</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-toggle" class="lg:hidden p-2 rounded-xl text-navy-900 hover:bg-cream-300 focus:outline-none" aria-label="Toggle navigation">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-cream-300 px-6 pt-3 pb-6 space-y-3">
+      <a href="#hero" class="mobile-item block py-2 text-sm font-semibold text-charcoal hover:text-saffron border-b border-cream-200">Home</a>
+      <a href="#learn" class="mobile-item block py-2 text-sm font-semibold text-charcoal hover:text-saffron border-b border-cream-200">Learn</a>
+      <a href="#mcq-challenge" class="mobile-item block py-2 text-sm font-semibold text-charcoal hover:text-saffron border-b border-cream-200">MCQ Quiz</a>
+      <a href="#categories" class="mobile-item block py-2 text-sm font-semibold text-charcoal hover:text-saffron border-b border-cream-200">Study Material</a>
+      <a href="#dashboard" class="mobile-item block py-2 text-sm font-semibold text-charcoal hover:text-saffron border-b border-cream-200">Results & Progress</a>
+      <a href="#why-portal" class="mobile-item block py-2 text-sm font-semibold text-charcoal hover:text-saffron border-b border-cream-200">About</a>
+      <div class="pt-3 flex flex-col gap-2">
+        <button onclick="openLoginModal()" class="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-navy-900 border border-navy-900/20 rounded-full hover:bg-cream-100">
+          Student Login
+        </button>
+        <a href="#learn" class="w-full text-center py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-saffron rounded-full">
+          🎓 Start Learning
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section id="hero" class="relative overflow-hidden pt-8 pb-16 lg:py-20 spiritual-mandala border-b border-cream-300">
+    <!-- Ambient spiritual gradients -->
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-saffron/10 rounded-full filter blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-32 w-96 h-96 bg-gold/15 rounded-full filter blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Purpose & Call to Action -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-saffron-50 border border-saffron/25 text-saffron text-xs font-bold uppercase tracking-widest shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-saffron animate-pulse"></span>
+            <span>Learn • Reflect • Question • Discover</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-institutional font-bold text-navy-900 tracking-tight leading-[1.18]">
+            Explore the Teachings of <span class="text-saffron">Sri Ramakrishna</span> & <span class="text-navy-700">Swami Vivekananda</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-charcoal-light leading-relaxed font-normal max-w-2xl mx-auto lg:mx-0">
+            A dignified educational platform for students and seekers to explore timeless philosophy, sacred literature, and universal values of Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda through structured study material and reflective MCQ-based learning.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#learn" class="px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase text-white bg-saffron hover:bg-saffron-700 shadow-card-lift transform hover:-translate-y-0.5 transition-all">
+              Start Learning →
+            </a>
+            <a href="#mcq-challenge" class="px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase text-navy-900 bg-white border border-navy-900/20 hover:bg-cream-100 shadow-subtle transition-all">
+              Take a Quiz →
+            </a>
+          </div>
+
+          <!-- Feature badges row -->
+          <div class="pt-6 grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 border-t border-cream-300">
+            <div class="text-center lg:text-left">
+              <span class="block font-institutional font-bold text-lg sm:text-xl text-navy-900">100%</span>
+              <span class="text-[11px] text-charcoal-muted uppercase tracking-wider font-semibold">Authentic Texts</span>
+            </div>
+            <div class="text-center lg:text-left">
+              <span class="block font-institutional font-bold text-lg sm:text-xl text-saffron">Reflective</span>
+              <span class="text-[11px] text-charcoal-muted uppercase tracking-wider font-semibold">Self-Evaluation</span>
+            </div>
+            <div class="text-center lg:text-left">
+              <span class="block font-institutional font-bold text-lg sm:text-xl text-navy-900">Zero Cost</span>
+              <span class="text-[11px] text-charcoal-muted uppercase tracking-wider font-semibold">Public Service</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Visual Frame with swamiji.jpg & Mandalas -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            
+            <!-- Sacred Circular Halo / Sun Backdrop -->
+            <div class="absolute inset-0 m-auto w-72 sm:w-80 h-72 sm:h-80 rounded-full bg-gradient-to-tr from-saffron/20 via-gold/30 to-amber-100/50 filter blur-xl transform scale-110 -z-10"></div>
+            
+            <!-- Traditional Floating Card Frame -->
+            <div class="relative bg-white p-4 sm:p-5 rounded-3xl shadow-2xl border-2 border-gold/40 diya-glow">
+              
+              <div class="relative overflow-hidden rounded-2xl bg-cream-100 border border-gold/30">
+                <img 
+                  src="swamiji.jpg" 
+                  alt="Swami Vivekananda - Ramakrishna Math Nagpur Learning Portal" 
+                  class="w-full h-auto object-cover transform hover:scale-[1.02] transition-transform duration-500"
+                  onerror="this.onerror=null; this.src='https://placehold.co/600x600/FAF6F0/D9531E?text=Swami+Vivekananda';"
+                />
+                
+                <!-- Gentle gradient overlay along bottom of image -->
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-950/80 via-navy-950/20 to-transparent p-4 text-white text-center">
+                  <p class="font-institutional font-bold text-sm tracking-widest text-gold uppercase">
+                    Swami Vivekananda
+                  </p>
+                  <p class="text-[11px] text-cream-200 font-serif italic">
+                    "Education is the manifestation of the perfection already in man."
+                  </p>
+                </div>
+              </div>
+
+              <!-- Floating Micro-Card: Educational Tradition -->
+              <div class="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-sm border border-gold/40 shadow-card-lift rounded-2xl p-3 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-saffron-50 text-saffron flex items-center justify-center font-bold text-lg">
+                  📖
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-navy-900">Spiritual Wisdom</span>
+                  <span class="block text-[10px] text-charcoal-muted">Nagpur Math Publications</span>
+                </div>
+              </div>
+
+              <!-- Floating Micro-Card: Reflective MCQs -->
+              <div class="absolute -top-4 -right-4 bg-navy-900 border border-gold/40 shadow-card-lift rounded-2xl p-3 text-white flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-gold/20 text-gold flex items-center justify-center font-bold text-sm">
+                  ✓
+                </div>
+                <div>
+                  <span class="block text-xs font-bold text-gold">Reflective MCQs</span>
+                  <span class="block text-[10px] text-cream-300">Concept-first learning</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="learn" class="py-20 bg-white border-b border-cream-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-saffron uppercase tracking-widest">Discover. Understand. Apply.</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-institutional font-bold text-navy-900">
+          What Will You Learn?
+        </h2>
+        <p class="mt-3 text-sm text-charcoal-light">
+          A harmonious balance of biographical insights, philosophical foundations, inspirational ideas, and reflective assessment.
+        </p>
+        <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1 -->
+        <div class="group bg-cream-100 rounded-3xl p-7 border border-cream-300 hover:border-saffron shadow-subtle hover:shadow-card-lift transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-saffron-50 text-saffron border border-saffron/20 flex items-center justify-center text-2xl mb-5 group-hover:bg-saffron group-hover:text-white transition-all">
+              📖
+            </div>
+            <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Life & Teachings</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Explore the sacred lives, divine parables, and inspiring ideals of:
+            </p>
+            <ul class="text-xs text-charcoal space-y-1.5 font-medium">
+              <li class="flex items-center gap-2"><span class="text-saffron">•</span> Sri Ramakrishna Paramahamsa</li>
+              <li class="flex items-center gap-2"><span class="text-saffron">•</span> Sri Sarada Devi (The Holy Mother)</li>
+              <li class="flex items-center gap-2"><span class="text-saffron">•</span> Swami Vivekananda & Monastic Disciples</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-cream-300/80 mt-6">
+            <a href="#categories" class="text-xs font-bold text-saffron uppercase tracking-wider group-hover:text-saffron-800 inline-flex items-center">
+              Explore Modules <span class="ml-1">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group bg-cream-100 rounded-3xl p-7 border border-cream-300 hover:border-saffron shadow-subtle hover:shadow-card-lift transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-navy-50 text-navy-800 border border-navy-200 flex items-center justify-center text-2xl mb-5 group-hover:bg-navy-900 group-hover:text-gold transition-all">
+              🕉️
+            </div>
+            <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Vedanta & Philosophy</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Understand deep spiritual concepts presented with scientific rationale and practical application:
+            </p>
+            <ul class="text-xs text-charcoal space-y-1.5 font-medium">
+              <li class="flex items-center gap-2"><span class="text-navy-700">•</span> Practical Vedanta in Daily Life</li>
+              <li class="flex items-center gap-2"><span class="text-navy-700">•</span> Karma, Bhakti, Jnana & Raja Yoga</li>
+              <li class="flex items-center gap-2"><span class="text-navy-700">•</span> Harmony of All Religions (Yato Mat Tato Path)</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-cream-300/80 mt-6">
+            <a href="#categories" class="text-xs font-bold text-navy-900 uppercase tracking-wider group-hover:text-saffron inline-flex items-center">
+              Explore Philosophy <span class="ml-1">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group bg-cream-100 rounded-3xl p-7 border border-cream-300 hover:border-saffron shadow-subtle hover:shadow-card-lift transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-gold/15 text-gold-dark border border-gold/30 flex items-center justify-center text-2xl mb-5 group-hover:bg-gold group-hover:text-navy-900 transition-all">
+              💡
+            </div>
+            <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Inspirational Thoughts</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Draw daily strength, fearlessness, character, and mental clarity from historic addresses:
+            </p>
+            <ul class="text-xs text-charcoal space-y-1.5 font-medium">
+              <li class="flex items-center gap-2"><span class="text-gold-dark">•</span> Chicago Addresses (1893)</li>
+              <li class="flex items-center gap-2"><span class="text-gold-dark">•</span> Letters to Youth and Disciple Directives</li>
+              <li class="flex items-center gap-2"><span class="text-gold-dark">•</span> The Gospel of Sri Ramakrishna Pearls</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-cream-300/80 mt-6">
+            <a href="#quote-section" class="text-xs font-bold text-gold-dark uppercase tracking-wider group-hover:text-saffron inline-flex items-center">
+              Read Quotations <span class="ml-1">→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="group bg-cream-100 rounded-3xl p-7 border border-cream-300 hover:border-saffron shadow-subtle hover:shadow-card-lift transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-saffron-50 text-saffron border border-saffron/20 flex items-center justify-center text-2xl mb-5 group-hover:bg-saffron group-hover:text-white transition-all">
+              🧠
+            </div>
+            <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Test Your Understanding</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Challenge yourself with carefully structured MCQs focused on internalizing values:
+            </p>
+            <ul class="text-xs text-charcoal space-y-1.5 font-medium">
+              <li class="flex items-center gap-2"><span class="text-saffron">•</span> Reflective & Application Questions</li>
+              <li class="flex items-center gap-2"><span class="text-saffron">•</span> In-depth textual citations & explanations</li>
+              <li class="flex items-center gap-2"><span class="text-saffron">•</span> Instant self-progress evaluation</li>
+            </ul>
+          </div>
+          <div class="pt-6 border-t border-cream-300/80 mt-6">
+            <a href="#mcq-challenge" class="text-xs font-bold text-saffron uppercase tracking-wider group-hover:text-saffron-800 inline-flex items-center">
+              Try Sample MCQ <span class="ml-1">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-20 bg-cream-200 border-b border-cream-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-saffron uppercase tracking-widest">Purposeful Process</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-institutional font-bold text-navy-900">
+          Your Learning Journey
+        </h2>
+        <p class="mt-3 text-sm text-charcoal-light">
+          We treat evaluation as a pathway to contemplation—moving from simple reading to character manifestation.
+        </p>
+        <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- 4 Connected Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        
+        <!-- Step 1 -->
+        <div class="relative bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-subtle hover:border-saffron transition-all duration-300">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-institutional font-bold text-2xl text-saffron">01</span>
+            <span class="text-3xl">📖</span>
+          </div>
+          <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Read</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed">
+            Study the selected chapters, lectures, and parables curated from authentic Nagpur Math publications.
+          </p>
+          <div class="mt-4 text-[11px] font-bold text-navy-700 uppercase tracking-wider">Literature & Modules</div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-subtle hover:border-saffron transition-all duration-300">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-institutional font-bold text-2xl text-saffron">02</span>
+            <span class="text-3xl">💡</span>
+          </div>
+          <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Understand</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed">
+            Reflect on the deep philosophical intent behind the words. Meditate on core teachings and their relevance today.
+          </p>
+          <div class="mt-4 text-[11px] font-bold text-navy-700 uppercase tracking-wider">Reflection & Context</div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-subtle hover:border-saffron transition-all duration-300">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-institutional font-bold text-2xl text-saffron">03</span>
+            <span class="text-3xl">🧠</span>
+          </div>
+          <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Attempt</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed">
+            Take topic-based MCQs. The questions are designed not to trick, but to solidify grasp of spiritual concepts.
+          </p>
+          <div class="mt-4 text-[11px] font-bold text-navy-700 uppercase tracking-wider">Reflective Quizzes</div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative bg-white rounded-3xl p-6 sm:p-7 border border-cream-300 shadow-subtle hover:border-saffron transition-all duration-300">
+          <div class="flex items-center justify-between mb-4">
+            <span class="font-institutional font-bold text-2xl text-saffron">04</span>
+            <span class="text-3xl">🏆</span>
+          </div>
+          <h3 class="text-lg font-institutional font-bold text-navy-900 mb-2">Discover</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed">
+            Review your reflections, study insightful feedback notes, identify growth opportunities, and assimilate values.
+          </p>
+          <div class="mt-4 text-[11px] font-bold text-navy-700 uppercase tracking-wider">Character Transformation</div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="categories" class="py-20 bg-white border-b border-cream-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-saffron uppercase tracking-widest">Explore the Knowledge</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-institutional font-bold text-navy-900">
+          Featured Learning Categories
+        </h2>
+        <p class="mt-3 text-sm text-charcoal-light">
+          Structured repositories of authentic texts, essays, audio commentaries, and self-evaluation papers.
+        </p>
+        <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Category 1: Sri Ramakrishna -->
+        <div class="bg-cream-100 rounded-3xl p-6 border border-cream-300 hover:border-gold shadow-subtle hover:shadow-card-lift transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-saffron-50 text-saffron text-[11px] font-bold uppercase tracking-wider">Avatar Varishtha</span>
+            <span class="text-xs font-mono text-charcoal-muted">8 Modules • 120 MCQs</span>
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Sri Ramakrishna</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+            Divine life at Dakshineswar, sadhana of all faiths, simple parables, Kathamrita dialogues, and unconditional divine love.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-300">
+            <span class="text-xs font-semibold text-navy-800">Life, Teachings & Conversations</span>
+            <button onclick="startCategoryQuiz('Sri Ramakrishna')" class="text-xs font-bold text-saffron hover:text-saffron-800 uppercase tracking-wider">
+              Explore →
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 2: Sri Sarada Devi -->
+        <div class="bg-cream-100 rounded-3xl p-6 border border-cream-300 hover:border-gold shadow-subtle hover:shadow-card-lift transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-[11px] font-bold uppercase tracking-wider">The Holy Mother</span>
+            <span class="text-xs font-mono text-charcoal-muted">6 Modules • 90 MCQs</span>
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Sri Sarada Devi</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+            The embodiment of pure universal motherhood, steadfast patience, quiet spiritual power, and practical wisdom in domestic life.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-300">
+            <span class="text-xs font-semibold text-navy-800">Life, Messages & Ideals</span>
+            <button onclick="startCategoryQuiz('Sri Sarada Devi')" class="text-xs font-bold text-saffron hover:text-saffron-800 uppercase tracking-wider">
+              Explore →
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 3: Swami Vivekananda -->
+        <div class="bg-cream-100 rounded-3xl p-6 border border-cream-300 hover:border-gold shadow-subtle hover:shadow-card-lift transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-saffron-50 text-saffron text-[11px] font-bold uppercase tracking-wider">Youth Inspiration</span>
+            <span class="text-xs font-mono text-charcoal-muted">14 Modules • 250 MCQs</span>
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Swami Vivekananda</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+            World-transforming message of strength, self-confidence, Chicago speeches, letters, service of man as God, and nation-building.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-300">
+            <span class="text-xs font-semibold text-navy-800">Speeches, Letters & Philosophy</span>
+            <button onclick="startCategoryQuiz('Swami Vivekananda')" class="text-xs font-bold text-saffron hover:text-saffron-800 uppercase tracking-wider">
+              Explore →
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 4: Vedanta Fundamentals -->
+        <div class="bg-cream-100 rounded-3xl p-6 border border-cream-300 hover:border-gold shadow-subtle hover:shadow-card-lift transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-navy-50 text-navy-800 text-[11px] font-bold uppercase tracking-wider">Philosophical Base</span>
+            <span class="text-xs font-mono text-charcoal-muted">8 Modules • 110 MCQs</span>
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Vedanta Fundamentals</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+            Core Upanishadic truths, Atman and Brahman, Maya, law of Karma, reincarnation, and four Yogas simplified for learners.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-300">
+            <span class="text-xs font-semibold text-navy-800">Essential Philosophical Concepts</span>
+            <button onclick="startCategoryQuiz('Vedanta Fundamentals')" class="text-xs font-bold text-saffron hover:text-saffron-800 uppercase tracking-wider">
+              Explore →
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 5: Ramakrishna-Vivekananda Literature -->
+        <div class="bg-cream-100 rounded-3xl p-6 border border-cream-300 hover:border-gold shadow-subtle hover:shadow-card-lift transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-saffron-50 text-saffron text-[11px] font-bold uppercase tracking-wider">Nagpur Publications</span>
+            <span class="text-xs font-mono text-charcoal-muted">10 Modules • 140 MCQs</span>
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Selected Literature</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+            Monographic guides based on Marathi, Hindi, and English publications released by Ramakrishna Math Nagpur for seekers.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-300">
+            <span class="text-xs font-semibold text-navy-800">Books & Scriptural Monographs</span>
+            <button onclick="startCategoryQuiz('Selected Literature')" class="text-xs font-bold text-saffron hover:text-saffron-800 uppercase tracking-wider">
+              Explore →
+            </button>
+          </div>
+        </div>
+
+        <!-- Category 6: Inspirational Sayings & Subhashitani -->
+        <div class="bg-cream-100 rounded-3xl p-6 border border-cream-300 hover:border-gold shadow-subtle hover:shadow-card-lift transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full bg-gold/15 text-gold-dark text-[11px] font-bold uppercase tracking-wider">Daily Contemplation</span>
+            <span class="text-xs font-mono text-charcoal-muted">5 Modules • 75 MCQs</span>
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Inspirational Sayings</h3>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+            Immortal aphorisms, motivational insights on mental concentration, overcoming fear, ethics, and social rejuvenation.
+          </p>
+          <div class="flex items-center justify-between pt-4 border-t border-cream-300">
+            <span class="text-xs font-semibold text-navy-800">Quotations & Daily Directives</span>
+            <button onclick="startCategoryQuiz('Inspirational Sayings')" class="text-xs font-bold text-saffron hover:text-saffron-800 uppercase tracking-wider">
+              Explore →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="mcq-challenge" class="py-20 bg-cream-200 border-b border-cream-300 spiritual-mandala">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs font-bold text-saffron uppercase tracking-widest">Interactive Demonstration</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-institutional font-bold text-navy-900">
+          🧠 Test Your Understanding
+        </h2>
+        <p class="mt-2 text-sm text-charcoal-light">
+          Experience our reflective evaluation methodology. Select an option below to test your grasp of Swamiji's core philosophy.
+        </p>
+        <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Live Interactive MCQ Card -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-gold/40 shadow-card-lift relative overflow-hidden">
+        
+        <!-- Header Info Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-cream-300 pb-5 mb-6">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-full bg-saffron-50 text-saffron text-xs font-bold uppercase tracking-wider">
+              Swami Vivekananda • Education Philosophy
+            </span>
+            <span class="text-xs text-charcoal-muted font-mono hidden sm:inline">Ref: Complete Works Vol. 4</span>
+          </div>
+          <div class="inline-flex items-center gap-2 text-xs font-semibold text-charcoal-light bg-cream-100 px-3 py-1.5 rounded-full border border-cream-300">
+            <span>⏱️ 10 Questions</span>
+            <span>•</span>
+            <span>10 Minutes</span>
+            <span>•</span>
+            <span class="text-green-700 font-bold">Instant Result</span>
+          </div>
+        </div>
+
+        <!-- Question Prompt -->
+        <div class="space-y-2 mb-8">
+          <span class="text-xs uppercase font-bold tracking-widest text-gold-dark">Question for Reflection:</span>
+          <h3 class="text-xl sm:text-2xl font-serif font-bold text-navy-900 leading-snug">
+            According to Swami Vivekananda, what is the essential purpose of education?
+          </h3>
+        </div>
+
+        <!-- 4 Interactive MCQ Options -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6" id="sample-mcq-options">
+          
+          <button onclick="checkSampleAnswer('A')" id="opt-A" class="mcq-btn text-left p-4 rounded-2xl border-2 border-cream-300 bg-cream-50 hover:bg-cream-100 hover:border-charcoal-light transition-all flex items-start gap-3">
+            <span class="w-7 h-7 rounded-lg bg-white border border-cream-300 flex items-center justify-center font-bold text-xs text-navy-900 shrink-0">A</span>
+            <span class="text-sm font-medium text-charcoal">Accumulation of encyclopedic information and academic degrees</span>
+          </button>
+
+          <button onclick="checkSampleAnswer('B')" id="opt-B" class="mcq-btn text-left p-4 rounded-2xl border-2 border-cream-300 bg-cream-50 hover:bg-cream-100 hover:border-charcoal-light transition-all flex items-start gap-3">
+            <span class="w-7 h-7 rounded-lg bg-white border border-cream-300 flex items-center justify-center font-bold text-xs text-navy-900 shrink-0">B</span>
+            <span class="text-sm font-medium text-charcoal">Development of character, mental strength, and self-reliance</span>
+          </button>
+
+          <button onclick="checkSampleAnswer('C')" id="opt-C" class="mcq-btn text-left p-4 rounded-2xl border-2 border-cream-300 bg-cream-50 hover:bg-cream-100 hover:border-charcoal-light transition-all flex items-start gap-3">
+            <span class="w-7 h-7 rounded-lg bg-white border border-cream-300 flex items-center justify-center font-bold text-xs text-navy-900 shrink-0">C</span>
+            <span class="text-sm font-medium text-charcoal">Rigid memorization of facts for securing institutional jobs</span>
+          </button>
+
+          <button onclick="checkSampleAnswer('D')" id="opt-D" class="mcq-btn text-left p-4 rounded-2xl border-2 border-cream-300 bg-cream-50 hover:bg-cream-100 hover:border-charcoal-light transition-all flex items-start gap-3">
+            <span class="w-7 h-7 rounded-lg bg-white border border-cream-300 flex items-center justify-center font-bold text-xs text-navy-900 shrink-0">D</span>
+            <span class="text-sm font-medium text-charcoal">Fierce competitive superiority and commercial utility alone</span>
+          </button>
+
+        </div>
+
+        <!-- Reflective Feedback Box -->
+        <div id="sample-feedback" class="hidden rounded-2xl p-5 mb-6 transition-all duration-300">
+          <!-- Dynamic feedback injected by script -->
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-cream-300">
+          <p class="text-xs text-charcoal-muted italic">
+            *Click on any option above to verify your understanding.
+          </p>
+          <div class="flex items-center gap-3">
+            <button onclick="resetSampleMCQ()" class="px-4 py-2 rounded-full text-xs font-semibold text-charcoal-light hover:text-navy-900 bg-cream-100 hover:bg-cream-200 transition-colors">
+              Reset Question
+            </button>
+            <button onclick="openQuizModal('Swami Vivekananda & Value Education')" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-saffron hover:bg-saffron-700 shadow-card-lift transition-all">
+              Start Full MCQ Challenge →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="quote-section" class="py-16 bg-navy-900 text-white relative overflow-hidden border-b border-gold/30">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold/15 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest mb-6">
+        <span>✨ Thought for Reflection</span>
+      </div>
+
+      <div class="min-h-[140px] flex flex-col justify-center">
+        <blockquote id="quote-text" class="text-2xl sm:text-3xl md:text-4xl font-serif font-bold italic tracking-wide text-cream-50 leading-snug">
+          “Arise, awake, and stop not till the goal is reached.”
+        </blockquote>
+        <p id="quote-author" class="mt-4 text-sm font-semibold tracking-wider text-gold uppercase">
+          — Swami Vivekananda
+        </p>
+        <p id="quote-context" class="text-xs text-cream-400 mt-1">
+          Katha Upanishad clarion call to the youth of the world
+        </p>
+      </div>
+
+      <!-- Controls to Switch Quotes -->
+      <div class="flex items-center justify-center gap-4 mt-8">
+        <button onclick="prevQuote()" class="p-2.5 rounded-full bg-navy-800 hover:bg-gold hover:text-navy-900 border border-gold/30 transition-all" aria-label="Previous quote">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button onclick="nextQuote()" class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-gold text-navy-900 hover:bg-gold-light transition-all shadow-halo">
+          Reflect on Next Teaching →
+        </button>
+        <button onclick="nextQuote()" class="p-2.5 rounded-full bg-navy-800 hover:bg-gold hover:text-navy-900 border border-gold/30 transition-all" aria-label="Next quote">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="dashboard" class="py-20 bg-white border-b border-cream-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-saffron uppercase tracking-widest">Self-Discovery & Metrics</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-institutional font-bold text-navy-900">
+          Student Dashboard Preview
+        </h2>
+        <p class="mt-3 text-sm text-charcoal-light">
+          A dedicated portal view empowering students to monitor their study hours, quiz accuracy, and moral concept retention.
+        </p>
+        <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="bg-cream-100 rounded-3xl p-6 sm:p-10 border border-cream-300 shadow-subtle">
+        
+        <!-- User Top Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-8 border-b border-cream-300">
+          <div class="flex items-center space-x-4">
+            <div class="w-14 h-14 rounded-full bg-saffron text-white flex items-center justify-center font-institutional font-bold text-xl shadow-md">
+              RK
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-lg font-bold text-navy-900">Rahul Sharma</h3>
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-green-100 text-green-800 border border-green-200 uppercase">Enrolled Scholar</span>
+              </div>
+              <p class="text-xs text-charcoal-muted">Nagpur University • Enrolled in Vivekananda Youth Series</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button onclick="openLoginModal()" class="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-navy-900 bg-white border border-cream-300 hover:bg-cream-200 transition-colors">
+              Switch Account
+            </button>
+            <a href="#quiz-categories" class="px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-saffron hover:bg-saffron-700 shadow-card-lift transition-all">
+              Resume Module
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Metrics Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 my-8">
+          
+          <div class="bg-white p-5 rounded-2xl border border-cream-300 shadow-sm text-center">
+            <span class="block text-3xl sm:text-4xl font-institutional font-bold text-navy-900">04</span>
+            <span class="text-xs text-charcoal-light font-semibold uppercase tracking-wider mt-1 block">Courses Completed</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-cream-300 shadow-sm text-center">
+            <span class="block text-3xl sm:text-4xl font-institutional font-bold text-saffron">18</span>
+            <span class="text-xs text-charcoal-light font-semibold uppercase tracking-wider mt-1 block">Quizzes Attempted</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-cream-300 shadow-sm text-center">
+            <span class="block text-3xl sm:text-4xl font-institutional font-bold text-navy-900">240</span>
+            <span class="text-xs text-charcoal-light font-semibold uppercase tracking-wider mt-1 block">Questions Answered</span>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-cream-300 shadow-sm text-center">
+            <span class="block text-3xl sm:text-4xl font-institutional font-bold text-green-700">82%</span>
+            <span class="text-xs text-charcoal-light font-semibold uppercase tracking-wider mt-1 block">Average Score</span>
+          </div>
+
+        </div>
+
+        <!-- Visual Progress Bars -->
+        <div class="space-y-6 pt-4">
+          
+          <div>
+            <div class="flex justify-between items-center text-xs font-bold text-navy-900 mb-2">
+              <span>Swami Vivekananda — Life & Teachings (Track 1)</span>
+              <span class="text-saffron">80% Completed</span>
+            </div>
+            <div class="w-full bg-cream-300 h-3 rounded-full overflow-hidden">
+              <div class="bg-saffron h-3 rounded-full transition-all duration-1000" style="width: 80%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center text-xs font-bold text-navy-900 mb-2">
+              <span>Practical Vedanta & The Four Yogas</span>
+              <span class="text-navy-700">65% Completed</span>
+            </div>
+            <div class="w-full bg-cream-300 h-3 rounded-full overflow-hidden">
+              <div class="bg-navy-700 h-3 rounded-full transition-all duration-1000" style="width: 65%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center text-xs font-bold text-navy-900 mb-2">
+              <span>Sri Sarada Devi: Ideals of Unconditional Motherhood</span>
+              <span class="text-gold-dark">92% Completed</span>
+            </div>
+            <div class="w-full bg-cream-300 h-3 rounded-full overflow-hidden">
+              <div class="bg-gold h-3 rounded-full transition-all duration-1000" style="width: 92%"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-cream-300 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-charcoal-light">
+          <p>Next Recommended Study: <em>Karma Yoga — Chapter 4: What is Duty?</em></p>
+          <button onclick="openQuizModal('Track 1 Final Assessment')" class="font-bold text-saffron hover:text-saffron-800 uppercase tracking-wider inline-flex items-center">
+            Continue Learning Session <span class="ml-1">→</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="quiz-categories" class="py-20 bg-cream-200 border-b border-cream-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-saffron uppercase tracking-widest">Self-Paced Assessment</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-institutional font-bold text-navy-900">
+          Choose Your Challenge
+        </h2>
+        <p class="mt-3 text-sm text-charcoal-light">
+          Select quizzes categorized by depth of comprehension or specific study formats.
+        </p>
+        <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Difficulty Level Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        
+        <!-- Beginner -->
+        <div class="bg-white rounded-3xl p-7 border border-cream-300 shadow-subtle hover:border-green-600 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl">🟢</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-200">Level 1</span>
+            </div>
+            <h3 class="text-xl font-institutional font-bold text-navy-900 mb-2">Beginner</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Basic understanding of the sacred lives, early chronologies, key parables, and memorable historical incidents of Sri Ramakrishna and Swamiji.
+            </p>
+            <ul class="text-xs text-charcoal space-y-2 mb-6">
+              <li class="flex items-center gap-2">✓ 15 Questions per set</li>
+              <li class="flex items-center gap-2">✓ Direct biographical events</li>
+              <li class="flex items-center gap-2">✓ Ideal for school & new seekers</li>
+            </ul>
+          </div>
+          <button onclick="openQuizModal('Beginner Level Quiz')" class="w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-green-700 hover:bg-green-800 transition-all">
+            Launch Beginner Quiz →
+          </button>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="bg-white rounded-3xl p-7 border-2 border-gold/50 shadow-card-lift hover:border-gold transition-all flex flex-col justify-between relative">
+          <div class="absolute -top-3 right-6 bg-gold text-navy-900 text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full shadow-sm">
+            Most Popular
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl">🟡</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200">Level 2</span>
+            </div>
+            <h3 class="text-xl font-institutional font-bold text-navy-900 mb-2">Intermediate</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Conceptual and textual questions based on Swamiji's speeches, Raja Yoga, Karma Yoga, and core dialogues from the Kathamrita.
+            </p>
+            <ul class="text-xs text-charcoal space-y-2 mb-6">
+              <li class="flex items-center gap-2">✓ 25 Questions with references</li>
+              <li class="flex items-center gap-2">✓ Conceptual Vedantic themes</li>
+              <li class="flex items-center gap-2">✓ Ideal for college youth & readers</li>
+            </ul>
+          </div>
+          <button onclick="openQuizModal('Intermediate Conceptual Quiz')" class="w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-saffron hover:bg-saffron-700 shadow-card-lift transition-all">
+            Launch Intermediate Quiz →
+          </button>
+        </div>
+
+        <!-- Advanced -->
+        <div class="bg-white rounded-3xl p-7 border border-cream-300 shadow-subtle hover:border-red-600 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-2xl">🔴</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">Level 3</span>
+            </div>
+            <h3 class="text-xl font-institutional font-bold text-navy-900 mb-2">Advanced</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Deep reflective and application-based questions analyzing Vedanta in the light of modern science, psychology, and societal issues.
+            </p>
+            <ul class="text-xs text-charcoal space-y-2 mb-6">
+              <li class="flex items-center gap-2">✓ 30 In-depth Questions</li>
+              <li class="flex items-center gap-2">✓ Scriptural synthesis & ethics</li>
+              <li class="flex items-center gap-2">✓ For researchers & dedicated sadhakas</li>
+            </ul>
+          </div>
+          <button onclick="openQuizModal('Advanced Application Quiz')" class="w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-navy-900 hover:bg-navy-800 transition-all">
+            Launch Advanced Quiz →
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Specific Formats Banner -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <div class="bg-white p-4 rounded-2xl border border-cream-300 text-center hover:border-saffron transition-colors cursor-pointer" onclick="openQuizModal('Timed 10-Minute Rapid Quiz')">
+          <span class="text-2xl block mb-1">⏱️</span>
+          <span class="text-xs font-bold text-navy-900 block">Timed Quiz</span>
+          <span class="text-[10px] text-charcoal-muted">10 Qs in 10 mins</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-cream-300 text-center hover:border-saffron transition-colors cursor-pointer" onclick="openQuizModal('Topic Quiz: The Four Yogas')">
+          <span class="text-2xl block mb-1">🎯</span>
+          <span class="text-xs font-bold text-navy-900 block">Topic Quiz</span>
+          <span class="text-[10px] text-charcoal-muted">Focus on single theme</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-cream-300 text-center hover:border-saffron transition-colors cursor-pointer" onclick="openQuizModal('Random Mixed Question Set')">
+          <span class="text-2xl block mb-1">🎲</span>
+          <span class="text-xs font-bold text-navy-900 block">Random Quiz</span>
+          <span class="text-[10px] text-charcoal-muted">Curated from all tracks</span>
+        </div>
+
+        <div class="bg-white p-4 rounded-2xl border border-cream-300 text-center hover:border-saffron transition-colors cursor-pointer" onclick="openQuizModal('Full-Length Annual Evaluation')">
+          <span class="text-2xl block mb-1">📜</span>
+          <span class="text-xs font-bold text-navy-900 block">Full-Length Quiz</span>
+          <span class="text-[10px] text-charcoal-muted">Comprehensive exam</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="why-portal" class="py-20 bg-white border-b border-cream-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-saffron uppercase tracking-widest">Educational Philosophy</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-institutional font-bold text-navy-900">
+          Learning Beyond Information
+        </h2>
+        <p class="mt-3 text-sm text-charcoal-light leading-relaxed">
+          This portal aims to encourage students not merely to remember facts, but to understand, reflect upon, and apply the timeless teachings found in the literature of Sri Ramakrishna, Sri Sarada Devi, and Swami Vivekananda.
+        </p>
+        <div class="w-16 h-1 bg-gold mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- 3 Foundational Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="bg-cream-100 rounded-3xl p-8 border border-cream-300 text-center hover:shadow-card-lift transition-all">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-white border border-saffron/30 flex items-center justify-center text-3xl text-saffron mb-5 shadow-sm">
+            📚
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Knowledge</h3>
+          <p class="text-xs text-saffron font-bold uppercase tracking-wider mb-3">Study Authentic Literature</p>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed">
+            Direct immersion in authentic source materials published by the Ramakrishna Math, free from commercial distortions and superficial opinions.
+          </p>
+        </div>
+
+        <div class="bg-cream-100 rounded-3xl p-8 border border-cream-300 text-center hover:shadow-card-lift transition-all">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-white border border-navy-200 flex items-center justify-center text-3xl text-navy-800 mb-5 shadow-sm">
+            🧠
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Understanding</h3>
+          <p class="text-xs text-navy-700 font-bold uppercase tracking-wider mb-3">Think Deeply on Teachings</p>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed">
+            Engage in sincere contemplation (Manana) and reflective MCQs that require thoughtful discernment rather than mechanical memorization.
+          </p>
+        </div>
+
+        <div class="bg-cream-100 rounded-3xl p-8 border border-cream-300 text-center hover:shadow-card-lift transition-all">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-white border border-gold/40 flex items-center justify-center text-3xl text-gold-dark mb-5 shadow-sm">
+            🌱
+          </div>
+          <h3 class="font-institutional font-bold text-xl text-navy-900 mb-2">Character</h3>
+          <p class="text-xs text-gold-dark font-bold uppercase tracking-wider mb-3">Bring Knowledge Into Life</p>
+          <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed">
+            Manifesting practical Vedanta in daily interactions: cultivating unselfishness, moral courage, compassion for all, and dedicated service.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Institutional Monastic Callout -->
+      <div class="mt-14 bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 rounded-3xl p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-gold/30">
+        <div class="space-y-2 text-center md:text-left">
+          <span class="text-xs font-bold uppercase tracking-widest text-gold">Institutional Heritage</span>
+          <h4 class="text-xl sm:text-2xl font-institutional font-bold">Ramakrishna Math Nagpur Publication Department</h4>
+          <p class="text-xs sm:text-sm text-cream-300 max-w-2xl">
+            Established for over a century, spreading elevating literature in Hindi, Marathi, and English to kindle human perfection and national harmony.
+          </p>
+        </div>
+        <a href="https://rkmathnagpur.org" target="_blank" rel="noopener noreferrer" class="shrink-0 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider text-navy-900 bg-gold hover:bg-gold-light transition-all shadow-halo">
+          Visit Math Website →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="py-20 bg-cream-200 border-b border-cream-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <span class="text-xs font-bold text-saffron uppercase tracking-widest">Announcements</span>
+          <h2 class="mt-2 text-3xl font-institutional font-bold text-navy-900">
+            Latest Updates & New Releases
+          </h2>
+        </div>
+        <button onclick="openAnnounceToast()" class="mt-4 md:mt-0 inline-flex items-center text-xs font-bold text-saffron uppercase tracking-wider hover:text-saffron-800">
+          Subscribe for Notifications <span class="ml-1">→</span>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Update 1 -->
+        <div class="bg-white rounded-3xl p-6 border border-cream-300 shadow-subtle flex flex-col justify-between hover:border-saffron transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-semibold mb-3">
+              <span class="text-saffron uppercase tracking-wider">🔔 MCQ Series</span>
+              <span class="text-charcoal-muted">New Release</span>
+            </div>
+            <h3 class="font-institutional font-bold text-navy-900 text-base mb-2">New MCQ Series on Jnana Yoga</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              50 new reflective questions examining Swamiji’s discourses on the Real Nature of Man and Maya and Freedom.
+            </p>
+          </div>
+          <button onclick="openQuizModal('Jnana Yoga Series')" class="text-xs font-bold text-saffron uppercase tracking-wider text-left hover:underline">
+            Take Jnana Yoga Quiz →
+          </button>
+        </div>
+
+        <!-- Update 2 -->
+        <div class="bg-white rounded-3xl p-6 border border-cream-300 shadow-subtle flex flex-col justify-between hover:border-saffron transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-semibold mb-3">
+              <span class="text-navy-700 uppercase tracking-wider">📚 Study Material</span>
+              <span class="text-charcoal-muted">Recently Added</span>
+            </div>
+            <h3 class="font-institutional font-bold text-navy-900 text-base mb-2">Sister Nivedita's Master as I Saw Him</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Study notes, timelines, and chapter summaries of Nivedita's definitive memoirs of Swami Vivekananda.
+            </p>
+          </div>
+          <button onclick="openQuizModal('Sister Nivedita Memoirs Study')" class="text-xs font-bold text-navy-900 uppercase tracking-wider text-left hover:underline">
+            Read Study Notes →
+          </button>
+        </div>
+
+        <!-- Update 3 -->
+        <div class="bg-white rounded-3xl p-6 border border-cream-300 shadow-subtle flex flex-col justify-between hover:border-saffron transition-all">
+          <div>
+            <div class="flex items-center justify-between text-xs font-semibold mb-3">
+              <span class="text-gold-dark uppercase tracking-wider">🏆 Challenge</span>
+              <span class="text-charcoal-muted">Statewide Event</span>
+            </div>
+            <h3 class="font-institutional font-bold text-navy-900 text-base mb-2">National Youth Day Online Quiz</h3>
+            <p class="text-xs sm:text-sm text-charcoal-light leading-relaxed mb-4">
+              Annual reflective challenge commemorating the birth anniversary of Swamiji with e-certificates for qualifiers.
+            </p>
+          </div>
+          <button onclick="openQuizModal('National Youth Day Quiz Challenge')" class="text-xs font-bold text-gold-dark uppercase tracking-wider text-left hover:underline">
+            View Challenge Details →
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div id="quiz-modal" class="fixed inset-0 z-50 hidden bg-navy-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-cream-300 relative max-h-[90vh] overflow-y-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closeQuizModal()" class="absolute top-5 right-5 text-charcoal-light hover:text-charcoal p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div id="quiz-modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+
+    </div>
+  </div>
+
+  <div id="login-modal" class="fixed inset-0 z-50 hidden bg-navy-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl border border-cream-300 relative">
+      <button onclick="closeLoginModal()" class="absolute top-5 right-5 text-charcoal-light hover:text-charcoal p-1">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 rounded-full bg-saffron-50 text-saffron mx-auto flex items-center justify-center text-xl font-bold mb-3 border border-saffron/30">
+          ॐ
+        </div>
+        <h3 class="font-institutional font-bold text-xl text-navy-900">Student Portal Access</h3>
+        <p class="text-xs text-charcoal-light mt-1">Track your reflective MCQ scores and study bookmarks</p>
+      </div>
+
+      <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1">Student Email / ID</label>
+          <input type="email" required placeholder="student@example.org" class="w-full px-4 py-2.5 rounded-xl border border-cream-300 focus:outline-none focus:border-saffron text-sm bg-cream-50">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-charcoal uppercase tracking-wider mb-1">Password</label>
+          <input type="password" required placeholder="••••••••" class="w-full px-4 py-2.5 rounded-xl border border-cream-300 focus:outline-none focus:border-saffron text-sm bg-cream-50">
+        </div>
+        <div class="flex items-center justify-between text-xs text-charcoal-light">
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="checkbox" class="accent-saffron" checked> Remember me
+          </label>
+          <a href="javascript:void(0)" onclick="openAnnounceToast('Password reset link sent to registered email.')" class="text-saffron hover:underline">Forgot?</a>
+        </div>
+        <button type="submit" class="w-full py-3 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-saffron hover:bg-saffron-700 shadow-card-lift transition-all">
+          Sign In to Portal
+        </button>
+      </form>
+
+      <div id="login-alert" class="hidden mt-4 p-3 rounded-xl bg-green-50 border border-green-200 text-green-800 text-xs text-center font-medium">
+        Logged in successfully! Welcome to your learning desk.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-navy-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-gold/40 text-xs flex items-center gap-3">
+    <span id="toast-text">Notification message here</span>
+    <button onclick="document.getElementById('toast').classList.add('hidden')" class="text-gold font-bold">✕</button>
+  </div>
+
+  <footer class="bg-navy-950 text-white pt-16 pb-10 border-t border-gold/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-navy-800">
+        
+        <!-- Column 1: Organization & Identity -->
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full bg-saffron text-white flex items-center justify-center font-institutional font-bold text-lg shadow-sm">
+              ॐ
+            </div>
+            <span class="font-institutional font-bold text-white text-base tracking-wide uppercase">
+              Ramakrishna Math
+            </span>
+          </div>
+          <p class="text-xs text-cream-300 leading-relaxed">
+            Nagpur, Maharashtra - 440012. Learning through the sacred literature and timeless teachings of Sri Ramakrishna, Holy Mother Sri Sarada Devi, and Swami Vivekananda.
+          </p>
+          <div class="text-[11px] text-gold font-serif italic">
+            "Atmano Mokshartham Jagaddhitaya Cha"
+          </div>
+        </div>
+
+        <!-- Column 2: Learning Resources -->
+        <div>
+          <h4 class="font-institutional text-sm font-bold text-gold uppercase tracking-wider mb-4">Learning</h4>
+          <ul class="space-y-2 text-xs text-cream-300">
+            <li><a href="#categories" class="hover:text-saffron transition-colors">Study Material Modules</a></li>
+            <li><a href="#mcq-challenge" class="hover:text-saffron transition-colors">MCQ Quiz Repository</a></li>
+            <li><a href="#quiz-categories" class="hover:text-saffron transition-colors">Quiz Difficulty Levels</a></li>
+            <li><a href="#dashboard" class="hover:text-saffron transition-colors">Student Learning Progress</a></li>
+            <li><a href="#learn" class="hover:text-saffron transition-colors">Four Yogas of Vedanta</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Information & Institutional Ethics -->
+        <div>
+          <h4 class="font-institutional text-sm font-bold text-gold uppercase tracking-wider mb-4">Information</h4>
+          <ul class="space-y-2 text-xs text-cream-300">
+            <li><a href="#why-portal" class="hover:text-saffron transition-colors">About the Portal</a></li>
+            <li><a href="javascript:void(0)" onclick="openAnnounceToast('Educational guidelines: Non-commercial, open to all seekers.')" class="hover:text-saffron transition-colors">Educational Guidelines</a></li>
+            <li><a href="javascript:void(0)" onclick="openAnnounceToast('Question banks are curated by scholars of Ramakrishna Math Nagpur.')" class="hover:text-saffron transition-colors">Authenticity Standards</a></li>
+            <li><a href="#categories" class="hover:text-saffron transition-colors">Nagpur Math Publications</a></li>
+            <li><a href="#hero" class="hover:text-saffron transition-colors">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Connect & Publication Corner -->
+        <div>
+          <h4 class="font-institutional text-sm font-bold text-gold uppercase tracking-wider mb-4">Connect</h4>
+          <ul class="space-y-2.5 text-xs text-cream-300">
+            <li class="flex items-start gap-2">
+              <span>📍</span>
+              <span>Ramakrishna Ashram Marg, Dhantoli, Nagpur, Maharashtra - 440012, India</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>📞</span>
+              <span>+91 712 242 3422 / 243 2225</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>✉️</span>
+              <span>education.nagpur@rkmm.org</span>
+            </li>
+            <li class="flex items-center gap-2">
+              <span>🌐</span>
+              <a href="https://rkmathnagpur.org" target="_blank" rel="noopener noreferrer" class="text-gold hover:underline">rkmathnagpur.org</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream-300/70">
+        <p>© 2026 Ramakrishna Math Nagpur. All Rights Reserved. Ideal for GitHub Pages.</p>
+        <p class="mt-2 sm:mt-0 font-serif italic text-gold/80">"Education is the manifestation of the perfection already in man."</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-item').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // 2. Interactive Sample MCQ Logic
+    let sampleAnswerSelected = false;
+
+    function checkSampleAnswer(option) {
+      const feedbackBox = document.getElementById('sample-feedback');
+      const allBtns = document.querySelectorAll('.mcq-btn');
+
+      // Reset styles
+      allBtns.forEach(btn => {
+        btn.classList.remove('border-green-600', 'bg-green-50', 'border-red-500', 'bg-red-50');
+      });
+
+      feedbackBox.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-900', 'bg-amber-50', 'border-amber-200', 'text-amber-900');
+
+      if (option === 'B') {
+        // Correct answer
+        document.getElementById('opt-B').classList.add('border-green-600', 'bg-green-50');
+        feedbackBox.classList.add('bg-green-50', 'border', 'border-green-200', 'text-green-900');
+        feedbackBox.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="text-xl">✅</span>
+            <div>
+              <p class="font-bold text-sm">Correct Reflection!</p>
+              <p class="text-xs mt-1 leading-relaxed">
+                Swami Vivekananda said: <em>"Education is not the amount of information that is put into your brain and runs riot there... We must have life-building, man-making, character-making assimilation of ideas. If education is identical with information, the libraries are the greatest sages in the world and encyclopedias are the Rishis."</em>
+              </p>
+            </div>
+          </div>
+        `;
+      } else {
+        // Other options
+        const chosenBtn = document.getElementById(`opt-${option}`);
+        chosenBtn.classList.add('border-amber-500', 'bg-amber-50');
+        feedbackBox.classList.add('bg-amber-50', 'border', 'border-amber-200', 'text-amber-900');
+        feedbackBox.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="text-xl">💡</span>
+            <div>
+              <p class="font-bold text-sm">A Reflection Note</p>
+              <p class="text-xs mt-1 leading-relaxed">
+                While modern society often emphasizes ${option === 'A' ? 'collecting degrees' : option === 'C' ? 'rote memorization' : 'commercial competitiveness'}, Swamiji emphasized that true education is <strong>"Man-making and Character-building"</strong> (Option B). Try reflecting on why character outlasts all mere facts.
+              </p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    function resetSampleMCQ() {
+      const allBtns = document.querySelectorAll('.mcq-btn');
+      allBtns.forEach(btn => {
+        btn.classList.remove('border-green-600', 'bg-green-50', 'border-amber-500', 'bg-amber-50', 'border-red-500', 'bg-red-50');
+      });
+      document.getElementById('sample-feedback').classList.add('hidden');
+    }
+
+    // 3. Quotes Carousel Logic
+    const quotes = [
+      {
+        quote: "“Arise, awake, and stop not till the goal is reached.”",
+        author: "Swami Vivekananda",
+        context: "Katha Upanishad clarion call to the youth of the world"
+      },
+      {
+        quote: "“As many faiths, so many paths.” (Yato mat, tato path)",
+        author: "Sri Ramakrishna Paramahamsa",
+        context: "The universal harmony of spiritual realizations at Dakshineswar"
+      },
+      {
+        quote: "“I tell you one thing my child — if you want peace of mind, do not find fault with others. Rather learn to see your own faults.”",
+        author: "Sri Sarada Devi",
+        context: "Final parting message of the Holy Mother to humanity"
+      },
+      {
+        quote: "“They alone live, who live for others, the rest are more dead than alive.”",
+        author: "Swami Vivekananda",
+        context: "Letters from Chicago on the gospel of unselfish social service"
+      },
+      {
+        quote: "“Pure mind and pure intellect are one and the same; for both lead to God-realization.”",
+        author: "Sri Ramakrishna Paramahamsa",
+        context: "Dialogues recorded in Sri Sri Ramakrishna Kathamrita"
+      }
+    ];
+
+    let currentQuoteIdx = 0;
+
+    function renderQuote() {
+      const q = quotes[currentQuoteIdx];
+      const textEl = document.getElementById('quote-text');
+      const authorEl = document.getElementById('quote-author');
+      const contextEl = document.getElementById('quote-context');
+
+      textEl.style.opacity = '0';
+      setTimeout(() => {
+        textEl.innerText = q.quote;
+        authorEl.innerText = `— ${q.author}`;
+        contextEl.innerText = q.context;
+        textEl.style.opacity = '1';
+      }, 180);
+    }
+
+    function nextQuote() {
+      currentQuoteIdx = (currentQuoteIdx + 1) % quotes.length;
+      renderQuote();
+    }
+
+    function prevQuote() {
+      currentQuoteIdx = (currentQuoteIdx - 1 + quotes.length) % quotes.length;
+      renderQuote();
+    }
+
+    // 4. Modal Quizzes Interactive Handler
+    const quizSets = {
+      default: [
+        {
+          q: "What was Sri Ramakrishna's core realization regarding diverse spiritual traditions?",
+          opts: [
+            "Only ancient traditions are legitimate",
+            "Different religions are paths leading to the same Divine Reality",
+            "Philosophical debate is higher than devotion",
+            "Spiritual realization is limited to monks"
+          ],
+          correct: 1,
+          exp: "Sri Ramakrishna practiced Christianity, Islam, and various Hindu paths, declaring 'Yato Mat, Tato Path' (As many faiths, so many paths)."
+        },
+        {
+          q: "What did Sri Sarada Devi emphasize as the greatest virtue for householders?",
+          opts: [
+            "Renouncing home immediately",
+            "Patience, forgiveness, and seeing God in all beings",
+            "Rigid formal ceremonies only",
+            "Isolation from society"
+          ],
+          correct: 1,
+          exp: "Holy Mother taught that true peace comes from seeing no one as a stranger: 'Learn to make the whole world your own.'"
+        },
+        {
+          q: "In Karma Yoga, what does Swami Vivekananda mean by unselfish work (Nishkama Karma)?",
+          opts: [
+            "Working without energy or enthusiasm",
+            "Performing duty without attachment to personal praise or reward",
+            "Avoiding responsibility in the world",
+            "Only working inside monasteries"
+          ],
+          correct: 1,
+          exp: "Karma Yoga teaches work for work's sake, serving the Divine in humanity without selfish craving for results."
+        }
+      ]
+    };
+
+    let activeModalQuiz = [];
+    let activeQuestionIdx = 0;
+    let quizScore = 0;
+
+    function openQuizModal(title) {
+      activeModalQuiz = quizSets.default;
+      activeQuestionIdx = 0;
+      quizScore = 0;
+
+      const modal = document.getElementById('quiz-modal');
+      modal.classList.remove('hidden');
+      renderModalQuestion(title);
+    }
+
+    function closeQuizModal() {
+      document.getElementById('quiz-modal').classList.add('hidden');
+    }
+
+    function renderModalQuestion(title) {
+      const container = document.getElementById('quiz-modal-content');
+      const item = activeModalQuiz[activeQuestionIdx];
+
+      if (!item) {
+        // Quiz completed screen
+        container.innerHTML = `
+          <div class="text-center py-6">
+            <span class="text-4xl">🏆</span>
+            <h3 class="font-institutional font-bold text-2xl text-navy-900 mt-2">Challenge Completed!</h3>
+            <p class="text-xs text-charcoal-muted mt-1 uppercase tracking-wider font-semibold">${title}</p>
+            
+            <div class="my-6 p-6 rounded-2xl bg-cream-100 border border-gold/40 max-w-sm mx-auto">
+              <span class="block text-4xl font-bold font-institutional text-saffron">${quizScore} / ${activeModalQuiz.length}</span>
+              <span class="text-xs text-charcoal-light font-semibold uppercase tracking-wider mt-1 block">Your Reflective Score</span>
+            </div>
+
+            <p class="text-xs sm:text-sm text-charcoal-light max-w-md mx-auto leading-relaxed">
+              “Fill the mind with high thoughts, highest ideals, place them day and night before you, and out of that will come great work.”
+            </p>
+
+            <div class="mt-6 flex justify-center gap-3">
+              <button onclick="closeQuizModal()" class="px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-saffron hover:bg-saffron-700">
+                Close & Review Dashboard
+              </button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const optionsHtml = item.opts.map((opt, i) => `
+        <button onclick="handleModalAnswer(${i}, '${title}')" class="w-full text-left p-3.5 rounded-2xl border border-cream-300 hover:border-saffron hover:bg-cream-100 transition-all text-xs sm:text-sm text-charcoal font-medium flex items-center gap-3">
+          <span class="w-6 h-6 rounded-lg bg-cream-200 text-navy-900 flex items-center justify-center font-bold text-xs shrink-0">${String.fromCharCode(65 + i)}</span>
+          <span>${opt}</span>
+        </button>
+      `).join('');
+
+      container.innerHTML = `
+        <div>
+          <div class="flex items-center justify-between text-xs text-charcoal-muted mb-4 border-b border-cream-300 pb-3">
+            <span class="font-bold text-saffron uppercase tracking-wider">${title}</span>
+            <span>Question ${activeQuestionIdx + 1} of ${activeModalQuiz.length}</span>
+          </div>
+
+          <h4 class="text-lg font-serif font-bold text-navy-900 mb-6 leading-snug">
+            ${item.q}
+          </h4>
+
+          <div class="space-y-3 mb-6">
+            ${optionsHtml}
+          </div>
+
+          <div class="text-[11px] text-charcoal-muted italic">
+            *Choose the option that reflects Swamiji and Thakur's philosophical teachings.
+          </div>
+        </div>
+      `;
+    }
+
+    function handleModalAnswer(chosenIdx, title) {
+      const item = activeModalQuiz[activeQuestionIdx];
+      const isCorrect = (chosenIdx === item.correct);
+      if (isCorrect) quizScore++;
+
+      const container = document.getElementById('quiz-modal-content');
+      container.innerHTML = `
+        <div class="py-2">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-2xl">${isCorrect ? '✅' : '💡'}</span>
+            <span class="font-bold text-sm ${isCorrect ? 'text-green-800' : 'text-amber-800'}">
+              ${isCorrect ? 'Accurate Reflection!' : 'Reflective Insight'}
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-charcoal leading-relaxed mb-4 bg-cream-100 p-4 rounded-2xl border border-cream-300">
+            ${item.exp}
+          </p>
+          <div class="flex justify-end pt-2">
+            <button onclick="nextModalQuestion('${title}')" class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-saffron hover:bg-saffron-700">
+              Continue to Next Question →
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    function nextModalQuestion(title) {
+      activeQuestionIdx++;
+      renderModalQuestion(title);
+    }
+
+    function startCategoryQuiz(catName) {
+      openQuizModal(`${catName} — Module Quiz`);
+    }
+
+    // 5. Login Modal & Notifications
+    function openLoginModal() {
+      document.getElementById('login-modal').classList.remove('hidden');
+    }
+
+    function closeLoginModal() {
+      document.getElementById('login-modal').classList.add('hidden');
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const alertBox = document.getElementById('login-alert');
+      alertBox.classList.remove('hidden');
+      setTimeout(() => {
+        closeLoginModal();
+        alertBox.classList.add('hidden');
+        openAnnounceToast('Logged in as Student. Progress is being recorded.');
+      }, 1200);
+    }
+
+    function openAnnounceToast(msg = 'New reflective study material updated by Ramakrishna Math Nagpur.') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
